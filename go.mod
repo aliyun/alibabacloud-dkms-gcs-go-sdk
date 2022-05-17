@@ -1,4 +1,4 @@
-module github.com/alibabacloud-dkms-gcs-go-sdk
+module github.com/aliyun/alibabacloud-dkms-gcs-go-sdk
 
 go 1.16
 

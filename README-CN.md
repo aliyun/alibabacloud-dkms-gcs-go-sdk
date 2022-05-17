@@ -13,36 +13,41 @@
 - Go 1.12及以上。
 
 ## 安装
+
 您可以使用`go mod`管理您的依赖：
+
 ```
 require (
-	github.com/alibabacloud-dkms-gcs-go-sdk v0.1.0
+	github.com/aliyun/alibabacloud-dkms-gcs-go-sdk v0.2.0
 	github.com/alibabacloud-go/tea v1.1.17
 )
 ```
+
 或者，通过`go get`命令获取远程代码包：
+
 ```
-$ go get github.com/alibabacloud-dkms-gcs-go-sdk
+$ go get -u github.com/aliyun/alibabacloud-dkms-gcs-go-sdk
 ```
 
 ## 快速使用
+
 ```go
 package example
 
 import (
 	"fmt"
-	dedicatedkmsopenapi "github.com/alibabacloud-dkms-gcs-go-sdk/openapi"
-	dedicatedkmsopenapiutil "github.com/alibabacloud-dkms-gcs-go-sdk/openapi-util"
-	dedicatedkmssdk "github.com/alibabacloud-dkms-gcs-go-sdk/sdk"
 	"github.com/alibabacloud-go/tea/tea"
+	dedicatedkmsopenapi "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi"
+	dedicatedkmsopenapiutil "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-util"
+	dedicatedkmssdk "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/sdk"
 )
 
 func main() {
-    config := &dedicatedkmsopenapi.Config{
-		Protocol: tea.String("https"),
+	config := &dedicatedkmsopenapi.Config{
+		Protocol:         tea.String("https"),
 		ClientKeyContent: tea.String("<your client key content>"),
-		Password: tea.String("<your client key password>"),
-		Endpoint: tea.String("<your dkms instance service endpoint>"),
+		Password:         tea.String("<your client key password>"),
+		Endpoint:         tea.String("<your dkms instance service endpoint>"),
 	}
 	client, err := dedicatedkmssdk.NewClient(config)
 	if err != nil {
@@ -67,4 +72,4 @@ func main() {
 
 [Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
-版权所有 2009-present, 阿里巴巴集团.
+Copyright (c) 2009-present, Alibaba Cloud All rights reserved.

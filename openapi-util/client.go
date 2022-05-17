@@ -3,8 +3,8 @@ package openapi_util
 import (
 	"crypto/sha256"
 	"encoding/hex"
-	"github.com/alibabacloud-dkms-gcs-go-sdk/openapi-util/protobuf/api"
 	"github.com/alibabacloud-go/tea/tea"
+	"github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-util/protobuf/api"
 	"github.com/golang/protobuf/proto"
 	"io"
 	"reflect"
