@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	dedicatedkmsopenapi "github.com/alibabacloud-dkms-gcs-go-sdk/openapi"
-	dedicatedkmsopenapiutil "github.com/alibabacloud-dkms-gcs-go-sdk/openapi-util"
-	dedicatedkmssdk "github.com/alibabacloud-dkms-gcs-go-sdk/sdk"
 	"github.com/alibabacloud-go/tea/tea"
+	dedicatedkmsopenapi "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi"
+	dedicatedkmsopenapiutil "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-util"
+	dedicatedkmssdk "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/sdk"
 	"io/ioutil"
 )
 

@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"encoding/pem"
 	"errors"
-	"github.com/alibabacloud-dkms-gcs-go-sdk/openapi-credential/auth"
-	"github.com/alibabacloud-dkms-gcs-go-sdk/openapi-credential/provider"
 	util "github.com/alibabacloud-go/tea-utils/service"
 	"github.com/alibabacloud-go/tea/tea"
+	"github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-credential/auth"
+	"github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-credential/provider"
 	"golang.org/x/crypto/pkcs12"
 	"io/ioutil"
 )

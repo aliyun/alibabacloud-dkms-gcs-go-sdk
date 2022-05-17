@@ -2,10 +2,10 @@
 package sdk
 
 import (
-	dedicatedkmsopenapi "github.com/alibabacloud-dkms-gcs-go-sdk/openapi"
-	dedicatedkmsopenapiutil "github.com/alibabacloud-dkms-gcs-go-sdk/openapi-util"
 	util "github.com/alibabacloud-go/tea-utils/service"
 	"github.com/alibabacloud-go/tea/tea"
+	dedicatedkmsopenapi "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi"
+	dedicatedkmsopenapiutil "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-util"
 )
 
 type EncryptRequest struct {

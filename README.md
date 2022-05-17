@@ -14,37 +14,41 @@ English | [简体中文](README-CN.md)
 
 ## Installation
 
-If you use `go mod` to manage your dependence, You can declare the dependency on AlibabaCloud DKMS SDK for Go in the go.mod file:
+If you use `go mod` to manage your dependence, You can declare the dependency on AlibabaCloud DKMS SDK for Go in the
+go.mod file:
 
 ```text
 require (
-	github.com/alibabacloud-dkms-gcs-go-sdk v0.1.0
+	github.com/aliyun/alibabacloud-dkms-gcs-go-sdk v0.1.0
 	github.com/alibabacloud-go/tea v1.1.17
 )
 ```
+
 Or, Run the following command to get the remote code package:
+
 ```shell
-$ go get github.com/alibabacloud-dkms-gcs-go-sdk
+$ go get -u github.com/aliyun/alibabacloud-dkms-gcs-go-sdk
 ```
 
 ## Quick Examples
+
 ```go
 package example
 
 import (
 	"fmt"
-	dedicatedkmsopenapi "github.com/alibabacloud-dkms-gcs-go-sdk/openapi"
-	dedicatedkmsopenapiutil "github.com/alibabacloud-dkms-gcs-go-sdk/openapi-util"
-	dedicatedkmssdk "github.com/alibabacloud-dkms-gcs-go-sdk/sdk"
 	"github.com/alibabacloud-go/tea/tea"
+	dedicatedkmsopenapi "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi"
+	dedicatedkmsopenapiutil "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-util"
+	dedicatedkmssdk "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/sdk"
 )
 
 func main() {
-    config := &dedicatedkmsopenapi.Config{
-		Protocol: tea.String("https"),
+	config := &dedicatedkmsopenapi.Config{
+		Protocol:         tea.String("https"),
 		ClientKeyContent: tea.String("<your client key content>"),
-		Password: tea.String("<your client key password>"),
-		Endpoint: tea.String("<your dkms instance service endpoint>"),
+		Password:         tea.String("<your client key password>"),
+		Endpoint:         tea.String("<your dkms instance service endpoint>"),
 	}
 	client, err := dedicatedkmssdk.NewClient(config)
 	if err != nil {

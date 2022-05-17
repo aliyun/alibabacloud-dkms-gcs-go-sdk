@@ -2,10 +2,10 @@
 package openapi
 
 import (
-	dedicatedkmsopenapicredential "github.com/alibabacloud-dkms-gcs-go-sdk/openapi-credential"
-	dedicatedkmsopenapiutil "github.com/alibabacloud-dkms-gcs-go-sdk/openapi-util"
 	util "github.com/alibabacloud-go/tea-utils/service"
 	"github.com/alibabacloud-go/tea/tea"
+	dedicatedkmsopenapicredential "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-credential"
+	dedicatedkmsopenapiutil "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-util"
 )
 
 var (
