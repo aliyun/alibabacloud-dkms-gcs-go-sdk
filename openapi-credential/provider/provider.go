@@ -1,7 +1,7 @@
 package provider
 
 import (
-	"github.com/alibabacloud-dkms-gcs-go-sdk/openapi-credential/auth"
+	"github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-credential/auth"
 )
 
 type AlibabaCloudCredentialsProvider interface {
