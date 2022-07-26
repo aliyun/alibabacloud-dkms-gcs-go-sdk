@@ -676,6 +676,142 @@ func (s *GetPublicKeyResponse) SetRequestId(v string) *GetPublicKeyResponse {
 	return s
 }
 
+type GetSecretValueRequest struct {
+	Headers             map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
+	SecretName          *string            `json:"SecretName,omitempty" xml:"SecretName,omitempty"`
+	VersionStage        *string            `json:"VersionStage,omitempty" xml:"VersionStage,omitempty"`
+	VersionId           *string            `json:"VersionId,omitempty" xml:"VersionId,omitempty"`
+	FetchExtendedConfig *bool              `json:"FetchExtendedConfig,omitempty" xml:"FetchExtendedConfig,omitempty"`
+}
+
+func (s GetSecretValueRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSecretValueRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSecretValueRequest) SetHeaders(v map[string]*string) *GetSecretValueRequest {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSecretValueRequest) SetSecretName(v string) *GetSecretValueRequest {
+	s.SecretName = &v
+	return s
+}
+
+func (s *GetSecretValueRequest) SetVersionStage(v string) *GetSecretValueRequest {
+	s.VersionStage = &v
+	return s
+}
+
+func (s *GetSecretValueRequest) SetVersionId(v string) *GetSecretValueRequest {
+	s.VersionId = &v
+	return s
+}
+
+func (s *GetSecretValueRequest) SetFetchExtendedConfig(v bool) *GetSecretValueRequest {
+	s.FetchExtendedConfig = &v
+	return s
+}
+
+type GetSecretValueResponse struct {
+	Headers           map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
+	SecretName        *string            `json:"SecretName,omitempty" xml:"SecretName,omitempty"`
+	SecretType        *string            `json:"SecretType,omitempty" xml:"SecretType,omitempty"`
+	SecretData        *string            `json:"SecretData,omitempty" xml:"SecretData,omitempty"`
+	SecretDataType    *string            `json:"SecretDataType,omitempty" xml:"SecretDataType,omitempty"`
+	VersionStages     []*string          `json:"VersionStages,omitempty" xml:"VersionStages,omitempty" type:"Repeated"`
+	VersionId         *string            `json:"VersionId,omitempty" xml:"VersionId,omitempty"`
+	CreateTime        *string            `json:"CreateTime,omitempty" xml:"CreateTime,omitempty"`
+	RequestId         *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	LastRotationDate  *string            `json:"LastRotationDate,omitempty" xml:"LastRotationDate,omitempty"`
+	NextRotationDate  *string            `json:"NextRotationDate,omitempty" xml:"NextRotationDate,omitempty"`
+	ExtendedConfig    *string            `json:"ExtendedConfig,omitempty" xml:"ExtendedConfig,omitempty"`
+	AutomaticRotation *string            `json:"AutomaticRotation,omitempty" xml:"AutomaticRotation,omitempty"`
+	RotationInterval  *string            `json:"RotationInterval,omitempty" xml:"RotationInterval,omitempty"`
+}
+
+func (s GetSecretValueResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSecretValueResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSecretValueResponse) SetHeaders(v map[string]*string) *GetSecretValueResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSecretValueResponse) SetSecretName(v string) *GetSecretValueResponse {
+	s.SecretName = &v
+	return s
+}
+
+func (s *GetSecretValueResponse) SetSecretType(v string) *GetSecretValueResponse {
+	s.SecretType = &v
+	return s
+}
+
+func (s *GetSecretValueResponse) SetSecretData(v string) *GetSecretValueResponse {
+	s.SecretData = &v
+	return s
+}
+
+func (s *GetSecretValueResponse) SetSecretDataType(v string) *GetSecretValueResponse {
+	s.SecretDataType = &v
+	return s
+}
+
+func (s *GetSecretValueResponse) SetVersionStages(v []*string) *GetSecretValueResponse {
+	s.VersionStages = v
+	return s
+}
+
+func (s *GetSecretValueResponse) SetVersionId(v string) *GetSecretValueResponse {
+	s.VersionId = &v
+	return s
+}
+
+func (s *GetSecretValueResponse) SetCreateTime(v string) *GetSecretValueResponse {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetSecretValueResponse) SetRequestId(v string) *GetSecretValueResponse {
+	s.RequestId = &v
+	return s
+}
+
+func (s *GetSecretValueResponse) SetLastRotationDate(v string) *GetSecretValueResponse {
+	s.LastRotationDate = &v
+	return s
+}
+
+func (s *GetSecretValueResponse) SetNextRotationDate(v string) *GetSecretValueResponse {
+	s.NextRotationDate = &v
+	return s
+}
+
+func (s *GetSecretValueResponse) SetExtendedConfig(v string) *GetSecretValueResponse {
+	s.ExtendedConfig = &v
+	return s
+}
+
+func (s *GetSecretValueResponse) SetAutomaticRotation(v string) *GetSecretValueResponse {
+	s.AutomaticRotation = &v
+	return s
+}
+
+func (s *GetSecretValueResponse) SetRotationInterval(v string) *GetSecretValueResponse {
+	s.RotationInterval = &v
+	return s
+}
+
 type Client struct {
 	dedicatedkmsopenapi.Client
 }
@@ -1034,6 +1170,57 @@ func (client *Client) GetPublicKey(request *GetPublicKeyRequest) (_result *GetPu
 	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
 	_result = &GetPublicKeyResponse{}
 	_body, _err := client.GetPublicKeyWithOptions(request, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSecretValueWithOptions(request *GetSecretValueRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *GetSecretValueResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedGetSecretValueRequest(reqBody)
+	if _err != nil {
+		return _result, _err
+	}
+	response, _err := client.DoRequest(tea.String("GetSecretValue"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+
+	respBody := util.AssertAsBytes(response["body"])
+	respMap, _err := dedicatedkmsopenapiutil.ParseGetSecretValueResponse(respBody)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &GetSecretValueResponse{}
+	_err = tea.Convert(map[string]interface{}{
+		"Headers":           response["headers"],
+		"RequestId":         respMap["RequestId"],
+		"SecretName":        respMap["SecretName"],
+		"SecretType":        respMap["SecretType"],
+		"SecretData":        respMap["SecretData"],
+		"SecretDataType":    respMap["SecretDataType"],
+		"VersionStages":     respMap["VersionStages"],
+		"VersionId":         respMap["VersionId"],
+		"CreateTime":        respMap["CreateTime"],
+		"LastRotationDate":  respMap["LastRotationDate"],
+		"NextRotationDate":  respMap["NextRotationDate"],
+		"ExtendedConfig":    respMap["ExtendedConfig"],
+		"AutomaticRotation": respMap["AutomaticRotation"],
+		"RotationInterval":  respMap["RotationInterval"],
+	}, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSecretValue(request *GetSecretValueRequest) (_result *GetSecretValueResponse, _err error) {
+	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
+	_result = &GetSecretValueResponse{}
+	_body, _err := client.GetSecretValueWithOptions(request, runtime)
 	if _err != nil {
 		return _result, _err
 	}
