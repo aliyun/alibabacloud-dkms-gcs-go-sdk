@@ -602,3 +602,48 @@ func ParseKmsDecryptResponse(resBody []byte) (_result map[string]interface{}, er
 	_result["RequestId"] = tea.String(response.RequestId)
 	return
 }
+
+func GetSerializedGetSecretValueRequest(reqBody map[string]interface{}) (_result []byte, err error) {
+	request := &api.GetSecretValueRequest{}
+	if v, ok := reqBody["SecretName"]; ok {
+		request.SecretName = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["VersionStage"]; ok {
+		request.VersionStage = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["VersionId"]; ok {
+		request.VersionId = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["FetchExtendedConfig"]; ok {
+		request.FetchExtendedConfig = tea.BoolValue(v.(*bool))
+	}
+	_result, err = proto.Marshal(request)
+	return
+}
+
+func ParseGetSecretValueResponse(resBody []byte) (_result map[string]interface{}, err error) {
+	_result = make(map[string]interface{})
+	response := &api.GetSecretValueResponse{}
+	err = proto.Unmarshal(resBody, response)
+	if err != nil {
+		return
+	}
+	var versionStages []*string
+	for _, stage := range response.VersionStages {
+		versionStages = append(versionStages, tea.String(stage))
+	}
+	_result["SecretName"] = tea.String(response.SecretName)
+	_result["SecretType"] = tea.String(response.SecretType)
+	_result["SecretData"] = tea.String(response.SecretData)
+	_result["SecretDataType"] = tea.String(response.SecretDataType)
+	_result["VersionStages"] = versionStages
+	_result["VersionId"] = tea.String(response.VersionId)
+	_result["CreateTime"] = tea.String(response.CreateTime)
+	_result["RequestId"] = tea.String(response.RequestId)
+	_result["LastRotationDate"] = tea.String(response.LastRotationDate)
+	_result["NextRotationDate"] = tea.String(response.NextRotationDate)
+	_result["ExtendedConfig"] = tea.String(response.ExtendedConfig)
+	_result["AutomaticRotation"] = tea.String(response.AutomaticRotation)
+	_result["RotationInterval"] = tea.String(response.RotationInterval)
+	return
+}
