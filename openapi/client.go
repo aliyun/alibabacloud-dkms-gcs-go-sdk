@@ -8,55 +8,6 @@ import (
 	dedicatedkmsopenapiutil "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-util"
 )
 
-var (
-	defaultCert = `-----BEGIN CERTIFICATE-----
-MIIDETCCAfkCFEoG8qIWsGo3DUYJztr2DDduzt0sMA0GCSqGSIb3DQEBCwUAMDsx
-CzAJBgNVBAYTAmNuMREwDwYDVQQIDAh6aGVqaWFuZzELMAkGA1UEBwwCaHoxDDAK
-BgNVBAoMA2ttczAgFw0yMjA0MTQwMzE5NTlaGA8yMTIyMDMyMTAzMTk1OVowTTEL
-MAkGA1UEBhMCY24xEzARBgNVBAgMCnpoZW5namlhbmcxCzAJBgNVBAcMAmh6MRww
-GgYDVQQKDBNEZWZhdWx0IENvbXBhbnkgTHRkMIIBIjANBgkqhkiG9w0BAQEFAAOC
-AQ8AMIIBCgKCAQEAru5l20y1+qDKkLnbb7jqeZWzH8IrqPpunU9JpRhJteEcNh4/
-mjYWRRsZrZRLDz4jzUxvQZE6wZT6c1S/A4PAp1T9hZFyk8M/Vcr/dlZJWW4BQx1J
-/x9xjPbSlEFfNiHGHAwDo4DCbTplTCm2lrGj4YQokn3ddT+9AOXeD3jahzt9tth5
-Wzf3Vo1ajQWhtcKtwJjTfY+RcsagoeJvmJt4DkhkwVTx/DH9Z05ZWIIwKDt2liJ+
-bmwbO99JC1pwLRhHs77kmjMWPFF/HLSO11bxeU0sCILz1VcugDO6BAAuBlipwvTk
-djLP/nrSxCqCB8pctslHSlStIFNAK8TvXeYILQIDAQABMA0GCSqGSIb3DQEBCwUA
-A4IBAQC3ZKcBlrBo8YE3sO6ML9x0qBWa1f5YwzHoXGvO5nO3X2J89MWHBfJlE1zj
-ayAHpvE5RxCCP6WpzSwsfuu/XQUTcXrh+KzRiU0zXzkumPX7lqNe2+Cscp1e2QwL
-NMCy/6PyfM0Bu6mEGZZhMmwT+prZs5sLk3qa+o90sZGXUAghBllHkcmrCQ2Ja6n7
-vewYgO9g7CsmmymQccAdtj3fQoF4NBD0HS+dtSYbLQjMebBx1L6zCryoNXKna0iM
-97uvmjfji2K9V1wdSh106YC3MDJZRIwopSOTN/QezehzT+3dbq5axukGa2BWRjVA
-V5bon9PzAcW2VDpkcHByzUgrpreV
------END CERTIFICATE-----`
-	defaultKey = `-----BEGIN RSA PRIVATE KEY-----
-MIIEpAIBAAKCAQEAru5l20y1+qDKkLnbb7jqeZWzH8IrqPpunU9JpRhJteEcNh4/
-mjYWRRsZrZRLDz4jzUxvQZE6wZT6c1S/A4PAp1T9hZFyk8M/Vcr/dlZJWW4BQx1J
-/x9xjPbSlEFfNiHGHAwDo4DCbTplTCm2lrGj4YQokn3ddT+9AOXeD3jahzt9tth5
-Wzf3Vo1ajQWhtcKtwJjTfY+RcsagoeJvmJt4DkhkwVTx/DH9Z05ZWIIwKDt2liJ+
-bmwbO99JC1pwLRhHs77kmjMWPFF/HLSO11bxeU0sCILz1VcugDO6BAAuBlipwvTk
-djLP/nrSxCqCB8pctslHSlStIFNAK8TvXeYILQIDAQABAoIBAQCP+KFYFhCID6Hn
-7y9NChHgs3ZTIwmv7zzut3zTJeQ0jusbF1YdY3p8scs2cyA7kVcB9nBytEZ5YFWo
-ag0zpVH/5hEpxwVX24/a2lHaYTXJJqJfTFHEaWqZK+MwJYVpFe7o0nKENMrP/wmz
-33jpGZbZWl3SA0kq4KR7grR6Y2rndJAjhal09ivyTHMOKYVXiMUZznuZufCc40m4
-i5FlrDvIagFcB852tlHzKqOICG6fLYZocJJB5dZZRDoQy/CYNqYt1z5mf2/jGIfE
-1o+KUOx1KEs5A8/pJ5fzjovcAwtn7uSTOHNXMBLGIQEG/l7foVqlNCkuFotYYMhc
-Ikc91Sa5AoGBAN/1XFS+AUca0bR/ffyvfaT4hQJUyUPoG01O8JnmsYtnRCPg3NmA
-zvkaR+uqmLkz6ctenV9md5+24TH9sHegbWp4OzNwLv3c2/hmtcl2ZI7rZmrIezuc
-3+qQodrVUGs/uwE3b2f0cDbsn69VhwHOE6uIe3KskNBQ5LfYUxN33KJXAoGBAMf1
-YXb8bIjMvJnXvkj9qNf6flCaXNTaBDptIMZb4Gf5bjLuruSOYwXtL+9v3rTpuY4u
-Cr38/akT41pqevyLiC1a9yWPmEAdbZiRr26RFJnxJAHlgYMPA9efTzM5qjrDrmj2
-6dFyR+ZMfdKkfeb2IuT6Z8V5iLMAX7YfUa7KTr8bAoGAJtIBDy9gSVL8xqzSydoh
-jVcGt0C7Imo5UU09p2+1ltRvm0h+/7S0K7nCfbc0geXdwMLFxKOeWLD6mA/BZvsH
-/Eya9m+btaVy+7vSBvnetGdZeWkG825d4erwI16WcgC6CZvyU7KrQNoDVAEfRdDS
-2AjwXRBMic971eJJhDZiqEECgYA3gI3oKBK8OhATp8XCnt4R7Q7IssAXuNg5m3bg
-eDomwh5rdsMG39rulzKaBHRNxR5jL7Z9m86Q8ttFio7OsLBA3qIBRAVfrotwMOgA
-CbctL7jt6dV0GmPXovmp31S38P7lVbv7DfyVGSBHqq7jv+hZpIPPVXezL+RhOfpD
-SRZohwKBgQCmQE3mLHe16EtzkJIBRv4m0+7CUvBqwr2WkndSpwlDZrriy5kdWra/
-nKB/ilMWXQjgs6bvwGBRir0B9dYeOSoqcL5av6HJsXyiyye4llLS+tleFoMVYVjf
-OBekUMUC54pZ9vIaF+sZsg9hJyTXHceVxrRsBe/Y258xCgh1m6z8Jg==
------END RSA PRIVATE KEY-----`
-)
-
 type Config struct {
 	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
 	// pkcs1 or pkcs8 PEM format private key
@@ -286,9 +237,9 @@ func (client *Client) DoRequest(apiName *string, apiVersion *string, protocol *s
 	}
 	var cert interface{}
 	var key interface{}
-	if runtime.Verify != nil {
-		cert = defaultCert
-		key = defaultKey
+	if runtime.Verify != nil && *runtime.Verify != "" {
+		cert = client.Credential.GetClientKeyCertPem()
+		key = tea.StringValue(client.Credential.GetAccessKeySecret())
 	}
 	_runtime := map[string]interface{}{
 		"timeouted":      "retry",

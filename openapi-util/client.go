@@ -3,6 +3,8 @@ package openapi_util
 import (
 	"crypto/sha256"
 	"encoding/hex"
+	"errors"
+	"fmt"
 	"github.com/alibabacloud-go/tea/tea"
 	"github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-util/protobuf/api"
 	"github.com/golang/protobuf/proto"
@@ -172,6 +174,7 @@ func GetErrMessage(msg []byte) (_result map[string]interface{}, err error) {
 	response := &api.Error{}
 	err = proto.Unmarshal(msg, response)
 	if err != nil {
+		err = errors.New(fmt.Sprintf("proto.Unmarshal(%s), err:%v", string(msg), err))
 		return
 	}
 	_result["Code"] = response.ErrorCode
