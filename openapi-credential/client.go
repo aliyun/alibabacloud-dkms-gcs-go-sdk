@@ -85,6 +85,7 @@ func (s *ClientKey) SetPrivateKeyData(v string) *ClientKey {
 
 type Client struct {
 	CredentialsProvider provider.AlibabaCloudCredentialsProvider
+	ClientKeyCertPem    string
 }
 
 func NewClient(config *Config) (*Client, error) {
@@ -97,10 +98,11 @@ func (client *Client) Init(config *Config) (_err error) {
 	if tea.BoolValue(util.EqualString(config.Type, tea.String("rsa_key_pair"))) {
 		if !tea.BoolValue(util.Empty(config.ClientKeyContent)) {
 			clientKey := &ClientKey{}
-			privateKeyPem, err := client.parseClientKeyContent(tea.StringValue(config.ClientKeyContent), tea.StringValue(config.Password), clientKey)
+			certPem, privateKeyPem, err := client.parseClientKeyContent(tea.StringValue(config.ClientKeyContent), tea.StringValue(config.Password), clientKey)
 			if err != nil {
 				return err
 			}
+			client.ClientKeyCertPem = certPem
 			client.CredentialsProvider = provider.NewRsaKeyPairCredentialProvider(tea.StringValue(clientKey.KeyId), privateKeyPem)
 		} else if !tea.BoolValue(util.Empty(config.ClientKeyFile)) {
 			clientKey := &ClientKey{}
@@ -108,10 +110,11 @@ func (client *Client) Init(config *Config) (_err error) {
 			if err != nil {
 				return err
 			}
-			privateKeyPem, err := client.parseClientKeyContent(string(content), tea.StringValue(config.Password), clientKey)
+			certPem, privateKeyPem, err := client.parseClientKeyContent(string(content), tea.StringValue(config.Password), clientKey)
 			if err != nil {
 				return err
 			}
+			client.ClientKeyCertPem = certPem
 			client.CredentialsProvider = provider.NewRsaKeyPairCredentialProvider(tea.StringValue(clientKey.KeyId), privateKeyPem)
 		} else {
 			client.CredentialsProvider = provider.NewRsaKeyPairCredentialProvider(tea.StringValue(config.AccessKeyId), tea.StringValue(config.PrivateKey))
@@ -132,6 +135,10 @@ func (client *Client) GetAccessKeySecret() (_result *string) {
 	return
 }
 
+func (client *Client) GetClientKeyCertPem() string {
+	return client.ClientKeyCertPem
+}
+
 func (client *Client) GetSignature(strToSign *string) (_result *string, _err error) {
 	credentials := client.CredentialsProvider.GetCredentials()
 	signer, _err := auth.GetSigner(credentials)
@@ -142,18 +149,18 @@ func (client *Client) GetSignature(strToSign *string) (_result *string, _err err
 	return
 }
 
-func (client *Client) parseClientKeyContent(content, password string, clientKey *ClientKey) (string, error) {
+func (client *Client) parseClientKeyContent(content, password string, clientKey *ClientKey) (string, string, error) {
 	err := json.Unmarshal([]byte(content), clientKey)
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
 	privateKeyData, err := base64.StdEncoding.DecodeString(tea.StringValue(clientKey.PrivateKeyData))
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
 	blocks, err := pkcs12.ToPEM(privateKeyData, password)
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
-	return string(pem.EncodeToMemory(blocks[1])), nil
+	return string(pem.EncodeToMemory(blocks[0])), string(pem.EncodeToMemory(blocks[1])), nil
 }
