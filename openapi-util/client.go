@@ -650,3 +650,122 @@ func ParseGetSecretValueResponse(resBody []byte) (_result map[string]interface{}
 	_result["RotationInterval"] = tea.String(response.RotationInterval)
 	return
 }
+
+func GetSerializedAdvanceEncryptRequest (reqBody map[string]interface{}) (_result []byte, err error) {
+
+	request := &api.AdvanceEncryptRequest{}
+	if v, ok := reqBody["KeyId"]; ok {
+		request.KeyId = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["Plaintext"]; ok {
+		request.Plaintext = v.([]byte)
+	}
+	if v, ok := reqBody["Algorithm"]; ok {
+		request.Algorithm = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["Aad"]; ok {
+		request.Aad = v.([]byte)
+	}
+	if v, ok := reqBody["Iv"]; ok {
+		request.Iv = v.([]byte)
+	}
+	if v, ok := reqBody["PaddingMode"]; ok {
+		request.PaddingMode = tea.StringValue(v.(*string))
+	}
+	_result, err = proto.Marshal(request)
+	return
+}
+
+func ParseAdvanceEncryptResponse (resBody []byte) (_result map[string]interface{}, err error) {
+
+	_result = make(map[string]interface{})
+	response := &api.AdvanceEncryptResponse{}
+	err = proto.Unmarshal(resBody, response)
+	if err != nil {
+		return
+	}
+	_result["KeyId"] = tea.String(response.KeyId)
+	_result["CiphertextBlob"] = response.CiphertextBlob
+	_result["Iv"] = response.Iv
+	_result["RequestId"] = tea.String(response.RequestId)
+	_result["Algorithm"] = tea.String(response.Algorithm)
+	_result["PaddingMode"] = tea.String(response.PaddingMode)
+	_result["KeyVersionId"] = tea.String(response.KeyVersionId)
+	return
+}
+
+func GetSerializedAdvanceDecryptRequest (reqBody map[string]interface{}) (_result []byte, err error) {
+
+	request := &api.AdvanceDecryptRequest{}
+	if v, ok := reqBody["CiphertextBlob"]; ok {
+		request.CiphertextBlob = v.([]byte)
+	}
+	if v, ok := reqBody["KeyId"]; ok {
+		request.KeyId = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["Algorithm"]; ok {
+		request.Algorithm = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["Aad"]; ok {
+		request.Aad = v.([]byte)
+	}
+	if v, ok := reqBody["Iv"]; ok {
+		request.Iv = v.([]byte)
+	}
+	if v, ok := reqBody["PaddingMode"]; ok {
+		request.PaddingMode = tea.StringValue(v.(*string))
+	}
+	_result, err = proto.Marshal(request)
+	return
+}
+
+func ParseAdvanceDecryptResponse (resBody []byte) (_result map[string]interface{}, err error) {
+
+	_result = make(map[string]interface{})
+	response := &api.AdvanceDecryptResponse{}
+	err = proto.Unmarshal(resBody, response)
+	if err != nil {
+		return
+	}
+	_result["KeyId"] = tea.String(response.KeyId)
+	_result["Plaintext"] = response.Plaintext
+	_result["RequestId"] = tea.String(response.RequestId)
+	_result["Algorithm"] = tea.String(response.Algorithm)
+	_result["PaddingMode"] = tea.String(response.PaddingMode)
+	_result["KeyVersionId"] = tea.String(response.KeyVersionId)
+	return
+}
+
+func GetSerializedAdvanceGenerateDataKeyRequest (reqBody map[string]interface{}) (_result []byte, err error) {
+
+	request := &api.AdvanceGenerateDataKeyRequest{}
+	if v, ok := reqBody["KeyId"]; ok {
+		request.KeyId = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["NumberOfBytes"]; ok {
+		request.NumberOfBytes = tea.Int32Value(v.(*int32))
+	}
+	if v, ok := reqBody["Aad"]; ok {
+		request.Aad = v.([]byte)
+	}
+	_result, err = proto.Marshal(request)
+	return
+}
+
+func ParseAdvanceGenerateDataKeyResponse (resBody []byte) (_result map[string]interface{}, err error) {
+
+	_result = make(map[string]interface{})
+	response := &api.AdvanceGenerateDataKeyResponse{}
+	err = proto.Unmarshal(resBody, response)
+	if err != nil {
+		return
+	}
+	_result["KeyId"] = tea.String(response.KeyId)
+	_result["Iv"] = response.Iv
+	_result["Plaintext"] = response.Plaintext
+	_result["CiphertextBlob"] = response.CiphertextBlob
+	_result["RequestId"] = tea.String(response.RequestId)
+	_result["Algorithm"] = tea.String(response.Algorithm)
+	_result["KeyVersionId"] = tea.String(response.KeyVersionId)
+	return
+}
