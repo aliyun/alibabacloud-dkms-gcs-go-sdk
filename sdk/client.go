@@ -812,6 +812,318 @@ func (s *GetSecretValueResponse) SetRotationInterval(v string) *GetSecretValueRe
 	return s
 }
 
+type AdvanceEncryptRequest struct {
+	KeyId          *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	Plaintext      []byte             `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
+	Algorithm      *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	Aad            []byte             `json:"Aad,omitempty" xml:"Aad,omitempty"`
+	Iv             []byte             `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	PaddingMode    *string            `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
+	Headers map[string]*string 		  `json:"Headers,omitempty" xml:"Headers,omitempty"`
+}
+
+func (s AdvanceEncryptRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdvanceEncryptRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AdvanceEncryptRequest) SetKeyId(v string) *AdvanceEncryptRequest {
+	s.KeyId = &v
+	return s
+}
+
+func (s *AdvanceEncryptRequest) SetPlaintext(v []byte) *AdvanceEncryptRequest {
+	s.Plaintext = v
+	return s
+}
+
+func (s *AdvanceEncryptRequest) SetAlgorithm(v string) *AdvanceEncryptRequest {
+	s.Algorithm = &v
+	return s
+}
+
+func (s *AdvanceEncryptRequest) SetAad(v []byte) *AdvanceEncryptRequest {
+	s.Aad = v
+	return s
+}
+
+func (s *AdvanceEncryptRequest) SetIv(v []byte) *AdvanceEncryptRequest {
+	s.Iv = v
+	return s
+}
+
+func (s *AdvanceEncryptRequest) SetPaddingMode(v string) *AdvanceEncryptRequest {
+	s.PaddingMode = &v
+	return s
+}
+
+func (s *AdvanceEncryptRequest) SetHeaders(v map[string]*string) *AdvanceEncryptRequest {
+	s.Headers = v
+	return s
+}
+
+type AdvanceEncryptResponse struct {
+	KeyId           *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	CiphertextBlob  []byte             `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
+	Iv              []byte             `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	RequestId       *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	Algorithm       *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	PaddingMode     *string            `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
+	KeyVersionId    *string            `json:"KeyVersionId,omitempty" xml:"KeyVersionId,omitempty"`
+	Headers map[string]*string 		   `json:"Headers,omitempty" xml:"Headers,omitempty"`
+}
+
+func (s AdvanceEncryptResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdvanceEncryptResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AdvanceEncryptResponse) SetKeyId(v string) *AdvanceEncryptResponse {
+	s.KeyId = &v
+	return s
+}
+
+func (s *AdvanceEncryptResponse) SetCiphertextBlob(v []byte) *AdvanceEncryptResponse {
+	s.CiphertextBlob = v
+	return s
+}
+
+func (s *AdvanceEncryptResponse) SetIv(v []byte) *AdvanceEncryptResponse {
+	s.Iv = v
+	return s
+}
+
+func (s *AdvanceEncryptResponse) SetRequestId(v string) *AdvanceEncryptResponse {
+	s.RequestId = &v
+	return s
+}
+
+func (s *AdvanceEncryptResponse) SetAlgorithm(v string) *AdvanceEncryptResponse {
+	s.Algorithm = &v
+	return s
+}
+
+func (s *AdvanceEncryptResponse) SetPaddingMode(v string) *AdvanceEncryptResponse {
+	s.PaddingMode = &v
+	return s
+}
+
+func (s *AdvanceEncryptResponse) SetKeyVersionId(v string) *AdvanceEncryptResponse {
+	s.KeyVersionId = &v
+	return s
+}
+
+func (s *AdvanceEncryptResponse) SetHeaders(v map[string]*string) *AdvanceEncryptResponse {
+	s.Headers = v
+	return s
+}
+
+type AdvanceDecryptRequest struct {
+	CiphertextBlob []byte             `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
+	KeyId          *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	Algorithm      *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	Aad            []byte             `json:"Aad,omitempty" xml:"Aad,omitempty"`
+	Iv             []byte             `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	PaddingMode    *string            `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
+	Headers map[string]*string 		  `json:"Headers,omitempty" xml:"Headers,omitempty"`
+}
+
+func (s AdvanceDecryptRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdvanceDecryptRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AdvanceDecryptRequest) SetCiphertextBlob(v []byte) *AdvanceDecryptRequest {
+	s.CiphertextBlob = v
+	return s
+}
+
+func (s *AdvanceDecryptRequest) SetKeyId(v string) *AdvanceDecryptRequest {
+	s.KeyId = &v
+	return s
+}
+
+func (s *AdvanceDecryptRequest) SetAlgorithm(v string) *AdvanceDecryptRequest {
+	s.Algorithm = &v
+	return s
+}
+
+func (s *AdvanceDecryptRequest) SetAad(v []byte) *AdvanceDecryptRequest {
+	s.Aad = v
+	return s
+}
+
+func (s *AdvanceDecryptRequest) SetIv(v []byte) *AdvanceDecryptRequest {
+	s.Iv = v
+	return s
+}
+
+func (s *AdvanceDecryptRequest) SetPaddingMode(v string) *AdvanceDecryptRequest {
+	s.PaddingMode = &v
+	return s
+}
+
+func (s *AdvanceDecryptRequest) SetHeaders(v map[string]*string) *AdvanceDecryptRequest {
+	s.Headers = v
+	return s
+}
+
+type AdvanceDecryptResponse struct {
+	KeyId           *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	Plaintext       []byte             `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
+	RequestId       *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	Algorithm       *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	PaddingMode     *string            `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
+	KeyVersionId    *string            `json:"KeyVersionId,omitempty" xml:"KeyVersionId,omitempty"`
+	Headers map[string]*string 		   `json:"Headers,omitempty" xml:"Headers,omitempty"`
+}
+
+func (s AdvanceDecryptResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdvanceDecryptResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AdvanceDecryptResponse) SetKeyId(v string) *AdvanceDecryptResponse {
+	s.KeyId = &v
+	return s
+}
+
+func (s *AdvanceDecryptResponse) SetPlaintext(v []byte) *AdvanceDecryptResponse {
+	s.Plaintext = v
+	return s
+}
+
+func (s *AdvanceDecryptResponse) SetRequestId(v string) *AdvanceDecryptResponse {
+	s.RequestId = &v
+	return s
+}
+
+func (s *AdvanceDecryptResponse) SetAlgorithm(v string) *AdvanceDecryptResponse {
+	s.Algorithm = &v
+	return s
+}
+
+func (s *AdvanceDecryptResponse) SetPaddingMode(v string) *AdvanceDecryptResponse {
+	s.PaddingMode = &v
+	return s
+}
+
+func (s *AdvanceDecryptResponse) SetKeyVersionId(v string) *AdvanceDecryptResponse {
+	s.KeyVersionId = &v
+	return s
+}
+
+func (s *AdvanceDecryptResponse) SetHeaders(v map[string]*string) *AdvanceDecryptResponse {
+	s.Headers = v
+	return s
+}
+
+type AdvanceGenerateDataKeyRequest struct {
+	KeyId          *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	NumberOfBytes  *int32             `json:"NumberOfBytes,omitempty" xml:"NumberOfBytes,omitempty"`
+	Aad            []byte             `json:"Aad,omitempty" xml:"Aad,omitempty"`
+	Headers map[string]*string 		  `json:"Headers,omitempty" xml:"Headers,omitempty"`
+}
+
+func (s AdvanceGenerateDataKeyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdvanceGenerateDataKeyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AdvanceGenerateDataKeyRequest) SetKeyId(v string) *AdvanceGenerateDataKeyRequest {
+	s.KeyId = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyRequest) SetNumberOfBytes(v int32) *AdvanceGenerateDataKeyRequest {
+	s.NumberOfBytes = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyRequest) SetAad(v []byte) *AdvanceGenerateDataKeyRequest {
+	s.Aad = v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyRequest) SetHeaders(v map[string]*string) *AdvanceGenerateDataKeyRequest {
+	s.Headers = v
+	return s
+}
+
+type AdvanceGenerateDataKeyResponse struct {
+	KeyId           *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	Iv              []byte             `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	Plaintext       []byte             `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
+	CiphertextBlob  []byte             `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
+	RequestId       *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	Algorithm       *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	KeyVersionId    *string            `json:"KeyVersionId,omitempty" xml:"KeyVersionId,omitempty"`
+	Headers map[string]*string 		   `json:"Headers,omitempty" xml:"Headers,omitempty"`
+}
+
+func (s AdvanceGenerateDataKeyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdvanceGenerateDataKeyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AdvanceGenerateDataKeyResponse) SetKeyId(v string) *AdvanceGenerateDataKeyResponse {
+	s.KeyId = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyResponse) SetIv(v []byte) *AdvanceGenerateDataKeyResponse {
+	s.Iv = v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyResponse) SetPlaintext(v []byte) *AdvanceGenerateDataKeyResponse {
+	s.Plaintext = v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyResponse) SetCiphertextBlob(v []byte) *AdvanceGenerateDataKeyResponse {
+	s.CiphertextBlob = v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyResponse) SetRequestId(v string) *AdvanceGenerateDataKeyResponse {
+	s.RequestId = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyResponse) SetAlgorithm(v string) *AdvanceGenerateDataKeyResponse {
+	s.Algorithm = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyResponse) SetKeyVersionId(v string) *AdvanceGenerateDataKeyResponse {
+	s.KeyVersionId = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyResponse) SetHeaders(v map[string]*string) *AdvanceGenerateDataKeyResponse {
+	s.Headers = v
+	return s
+}
+
 type Client struct {
 	dedicatedkmsopenapi.Client
 }
@@ -835,7 +1147,7 @@ func (client *Client) EncryptWithOptions(request *EncryptRequest, runtime *dedic
 	if _err != nil {
 		return _result, _err
 	}
-	//reqBody := util.ToMap(request)
+	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
 	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedEncryptRequest(reqBody)
 	if _err != nil {
@@ -880,7 +1192,7 @@ func (client *Client) DecryptWithOptions(request *DecryptRequest, runtime *dedic
 	if _err != nil {
 		return _result, _err
 	}
-	//reqBody := util.ToMap(request)
+	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
 	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedDecryptRequest(reqBody)
 	if _err != nil {
@@ -924,7 +1236,7 @@ func (client *Client) HmacWithOptions(request *HmacRequest, runtime *dedicatedkm
 	if _err != nil {
 		return _result, _err
 	}
-	//reqBody := util.ToMap(request)
+	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
 	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedHmacRequest(reqBody)
 	if _err != nil {
@@ -966,7 +1278,7 @@ func (client *Client) SignWithOptions(request *SignRequest, runtime *dedicatedkm
 	if _err != nil {
 		return _result, _err
 	}
-	//reqBody := util.ToMap(request)
+	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
 	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedSignRequest(reqBody)
 	if _err != nil {
@@ -1010,7 +1322,7 @@ func (client *Client) VerifyWithOptions(request *VerifyRequest, runtime *dedicat
 	if _err != nil {
 		return _result, _err
 	}
-	//reqBody := util.ToMap(request)
+	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
 	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedVerifyRequest(reqBody)
 	if _err != nil {
@@ -1054,7 +1366,7 @@ func (client *Client) GenerateRandomWithOptions(request *GenerateRandomRequest, 
 	if _err != nil {
 		return _result, _err
 	}
-	//reqBody := util.ToMap(request)
+	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
 	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedGenerateRandomRequest(reqBody)
 	if _err != nil {
@@ -1095,7 +1407,7 @@ func (client *Client) GenerateDataKeyWithOptions(request *GenerateDataKeyRequest
 	if _err != nil {
 		return _result, _err
 	}
-	//reqBody := util.ToMap(request)
+	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
 	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedGenerateDataKeyRequest(reqBody)
 	if _err != nil {
@@ -1140,7 +1452,7 @@ func (client *Client) GetPublicKeyWithOptions(request *GetPublicKeyRequest, runt
 	if _err != nil {
 		return _result, _err
 	}
-	//reqBody := util.ToMap(request)
+	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
 	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedGetPublicKeyRequest(reqBody)
 	if _err != nil {
@@ -1225,5 +1537,139 @@ func (client *Client) GetSecretValue(request *GetSecretValueRequest) (_result *G
 		return _result, _err
 	}
 	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AdvanceEncrypt(request *AdvanceEncryptRequest) (_result *AdvanceEncryptResponse, _err error) {
+	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
+	_result = &AdvanceEncryptResponse{}
+	_body, _err := client.AdvanceEncryptWithOptions(request, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AdvanceEncryptWithOptions(request *AdvanceEncryptRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *AdvanceEncryptResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	
+	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
+	reqBodyBytes, err := dedicatedkmsopenapiutil.GetSerializedAdvanceEncryptRequest(reqBody)
+	response, err := client.DoRequest(tea.String("AdvanceEncrypt"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+
+	respBody := util.AssertAsBytes(response["body"])
+	respMap, err := dedicatedkmsopenapiutil.ParseAdvanceEncryptResponse(respBody)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	_result = &AdvanceEncryptResponse{}
+	_err = tea.Convert(map[string]interface{}{
+		"KeyId":           respMap["KeyId"],
+		"CiphertextBlob":  respMap["CiphertextBlob"],
+		"Iv":              respMap["Iv"],
+		"RequestId":       respMap["RequestId"],
+		"Algorithm":       respMap["Algorithm"],
+		"PaddingMode":     respMap["PaddingMode"],
+		"KeyVersionId":    respMap["KeyVersionId"],
+		"Headers": 		   response["headers"],
+	}, &_result)
+	return _result, _err
+}
+
+func (client *Client) AdvanceDecrypt(request *AdvanceDecryptRequest) (_result *AdvanceDecryptResponse, _err error) {
+	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
+	_result = &AdvanceDecryptResponse{}
+	_body, _err := client.AdvanceDecryptWithOptions(request, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AdvanceDecryptWithOptions(request *AdvanceDecryptRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *AdvanceDecryptResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	
+	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
+	reqBodyBytes, err := dedicatedkmsopenapiutil.GetSerializedAdvanceDecryptRequest(reqBody)
+	response, err := client.DoRequest(tea.String("AdvanceDecrypt"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+
+	respBody := util.AssertAsBytes(response["body"])
+	respMap, err := dedicatedkmsopenapiutil.ParseAdvanceDecryptResponse(respBody)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	_result = &AdvanceDecryptResponse{}
+	_err = tea.Convert(map[string]interface{}{
+		"KeyId":           respMap["KeyId"],
+		"Plaintext":       respMap["Plaintext"],
+		"RequestId":       respMap["RequestId"],
+		"Algorithm":       respMap["Algorithm"],
+		"PaddingMode":     respMap["PaddingMode"],
+		"KeyVersionId":    respMap["KeyVersionId"],
+		"Headers": response["headers"],
+	}, &_result)
+	return _result, _err
+}
+
+func (client *Client) AdvanceGenerateDataKey(request *AdvanceGenerateDataKeyRequest) (_result *AdvanceGenerateDataKeyResponse, _err error) {
+	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
+	_result = &AdvanceGenerateDataKeyResponse{}
+	_body, _err := client.AdvanceGenerateDataKeyWithOptions(request, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AdvanceGenerateDataKeyWithOptions(request *AdvanceGenerateDataKeyRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *AdvanceGenerateDataKeyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	
+	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
+	reqBodyBytes, err := dedicatedkmsopenapiutil.GetSerializedAdvanceGenerateDataKeyRequest(reqBody)
+	response, err := client.DoRequest(tea.String("AdvanceGenerateDataKey"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+
+	respBody := util.AssertAsBytes(response["body"])
+	respMap, err := dedicatedkmsopenapiutil.ParseAdvanceGenerateDataKeyResponse(respBody)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	_result = &AdvanceGenerateDataKeyResponse{}
+	_err = tea.Convert(map[string]interface{}{
+		"KeyId":           respMap["KeyId"],
+		"Iv":              respMap["Iv"],
+		"Plaintext":       respMap["Plaintext"],
+		"CiphertextBlob":  respMap["CiphertextBlob"],
+		"RequestId":       respMap["RequestId"],
+		"Algorithm":       respMap["Algorithm"],
+		"KeyVersionId":    respMap["KeyVersionId"],
+		"Headers": response["headers"],
+	}, &_result)
 	return _result, _err
 }
