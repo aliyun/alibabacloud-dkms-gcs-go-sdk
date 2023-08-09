@@ -10,7 +10,7 @@
 
 ## 依赖
 
-- Go 1.12及以上。
+- Go 1.13及以上。
 
 ## 安装
 
@@ -18,7 +18,7 @@
 
 ```
 require (
-	github.com/aliyun/alibabacloud-dkms-gcs-go-sdk v0.3.0
+	github.com/aliyun/alibabacloud-dkms-gcs-go-sdk v0.4.0
 	github.com/alibabacloud-go/tea v1.1.17
 )
 ```
