@@ -1,21 +1,29 @@
 // This file is auto-generated, don't edit it. Thanks.
-package sdk
+package client
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/service"
+	encodeutil "github.com/alibabacloud-go/darabonba-encode-util/client"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 	dedicatedkmsopenapi "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi"
 	dedicatedkmsopenapiutil "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-util"
 )
 
 type EncryptRequest struct {
-	Headers     map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	KeyId       *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Plaintext   []byte             `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
-	Algorithm   *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	Aad         []byte             `json:"Aad,omitempty" xml:"Aad,omitempty"`
-	Iv          []byte             `json:"Iv,omitempty" xml:"Iv,omitempty"`
-	PaddingMode *string            `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 待加密的明文数据
+	Plaintext []byte `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 对数据密钥加密时使用的GCM加密模式认证数据
+	Aad []byte `json:"Aad,omitempty" xml:"Aad,omitempty"`
+	// 对数据加密时使用的初始向量
+	Iv []byte `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	// 填充模式
+	PaddingMode *string `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s EncryptRequest) String() string {
@@ -24,11 +32,6 @@ func (s EncryptRequest) String() string {
 
 func (s EncryptRequest) GoString() string {
 	return s.String()
-}
-
-func (s *EncryptRequest) SetHeaders(v map[string]*string) *EncryptRequest {
-	s.Headers = v
-	return s
 }
 
 func (s *EncryptRequest) SetKeyId(v string) *EncryptRequest {
@@ -61,14 +64,26 @@ func (s *EncryptRequest) SetPaddingMode(v string) *EncryptRequest {
 	return s
 }
 
+func (s *EncryptRequest) SetHeaders(v map[string]*string) *EncryptRequest {
+	s.Headers = v
+	return s
+}
+
 type EncryptResponse struct {
-	Headers        map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	KeyId          *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	CiphertextBlob []byte             `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
-	Iv             []byte             `json:"Iv,omitempty" xml:"Iv,omitempty"`
-	Algorithm      *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	PaddingMode    *string            `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
-	RequestId      *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 数据被指定密钥加密后的密文
+	CiphertextBlob []byte `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
+	// 加密数据时使用的初始向量
+	Iv []byte `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 填充模式
+	PaddingMode *string `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s EncryptResponse) String() string {
@@ -77,11 +92,6 @@ func (s EncryptResponse) String() string {
 
 func (s EncryptResponse) GoString() string {
 	return s.String()
-}
-
-func (s *EncryptResponse) SetHeaders(v map[string]*string) *EncryptResponse {
-	s.Headers = v
-	return s
 }
 
 func (s *EncryptResponse) SetKeyId(v string) *EncryptResponse {
@@ -99,6 +109,11 @@ func (s *EncryptResponse) SetIv(v []byte) *EncryptResponse {
 	return s
 }
 
+func (s *EncryptResponse) SetRequestId(v string) *EncryptResponse {
+	s.RequestId = &v
+	return s
+}
+
 func (s *EncryptResponse) SetAlgorithm(v string) *EncryptResponse {
 	s.Algorithm = &v
 	return s
@@ -109,19 +124,26 @@ func (s *EncryptResponse) SetPaddingMode(v string) *EncryptResponse {
 	return s
 }
 
-func (s *EncryptResponse) SetRequestId(v string) *EncryptResponse {
-	s.RequestId = &v
+func (s *EncryptResponse) SetHeaders(v map[string]*string) *EncryptResponse {
+	s.Headers = v
 	return s
 }
 
 type DecryptRequest struct {
-	Headers        map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	CiphertextBlob []byte             `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
-	KeyId          *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Algorithm      *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	Aad            []byte             `json:"Aad,omitempty" xml:"Aad,omitempty"`
-	Iv             []byte             `json:"Iv,omitempty" xml:"Iv,omitempty"`
-	PaddingMode    *string            `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
+	// 数据被指定密钥加密后的密文
+	CiphertextBlob []byte `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 对数据密钥加密时使用的GCM加密模式认证数据
+	Aad []byte `json:"Aad,omitempty" xml:"Aad,omitempty"`
+	// 加密数据时使用的初始向量
+	Iv []byte `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	// 填充模式
+	PaddingMode *string `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s DecryptRequest) String() string {
@@ -130,11 +152,6 @@ func (s DecryptRequest) String() string {
 
 func (s DecryptRequest) GoString() string {
 	return s.String()
-}
-
-func (s *DecryptRequest) SetHeaders(v map[string]*string) *DecryptRequest {
-	s.Headers = v
-	return s
 }
 
 func (s *DecryptRequest) SetCiphertextBlob(v []byte) *DecryptRequest {
@@ -167,13 +184,24 @@ func (s *DecryptRequest) SetPaddingMode(v string) *DecryptRequest {
 	return s
 }
 
+func (s *DecryptRequest) SetHeaders(v map[string]*string) *DecryptRequest {
+	s.Headers = v
+	return s
+}
+
 type DecryptResponse struct {
-	Headers     map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	KeyId       *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Plaintext   []byte             `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
-	Algorithm   *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	PaddingMode *string            `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
-	RequestId   *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 待加密的明文数据
+	Plaintext []byte `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 填充模式
+	PaddingMode *string `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s DecryptResponse) String() string {
@@ -184,11 +212,6 @@ func (s DecryptResponse) GoString() string {
 	return s.String()
 }
 
-func (s *DecryptResponse) SetHeaders(v map[string]*string) *DecryptResponse {
-	s.Headers = v
-	return s
-}
-
 func (s *DecryptResponse) SetKeyId(v string) *DecryptResponse {
 	s.KeyId = &v
 	return s
@@ -196,6 +219,11 @@ func (s *DecryptResponse) SetKeyId(v string) *DecryptResponse {
 
 func (s *DecryptResponse) SetPlaintext(v []byte) *DecryptResponse {
 	s.Plaintext = v
+	return s
+}
+
+func (s *DecryptResponse) SetRequestId(v string) *DecryptResponse {
+	s.RequestId = &v
 	return s
 }
 
@@ -209,82 +237,22 @@ func (s *DecryptResponse) SetPaddingMode(v string) *DecryptResponse {
 	return s
 }
 
-func (s *DecryptResponse) SetRequestId(v string) *DecryptResponse {
-	s.RequestId = &v
-	return s
-}
-
-type HmacRequest struct {
-	Headers map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	KeyId   *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Message []byte             `json:"Message,omitempty" xml:"Message,omitempty"`
-}
-
-func (s HmacRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s HmacRequest) GoString() string {
-	return s.String()
-}
-
-func (s *HmacRequest) SetHeaders(v map[string]*string) *HmacRequest {
+func (s *DecryptResponse) SetHeaders(v map[string]*string) *DecryptResponse {
 	s.Headers = v
-	return s
-}
-
-func (s *HmacRequest) SetKeyId(v string) *HmacRequest {
-	s.KeyId = &v
-	return s
-}
-
-func (s *HmacRequest) SetMessage(v []byte) *HmacRequest {
-	s.Message = v
-	return s
-}
-
-type HmacResponse struct {
-	Headers   map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	KeyId     *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Signature []byte             `json:"Signature,omitempty" xml:"Signature,omitempty"`
-	RequestId *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
-}
-
-func (s HmacResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s HmacResponse) GoString() string {
-	return s.String()
-}
-
-func (s *HmacResponse) SetHeaders(v map[string]*string) *HmacResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *HmacResponse) SetKeyId(v string) *HmacResponse {
-	s.KeyId = &v
-	return s
-}
-
-func (s *HmacResponse) SetSignature(v []byte) *HmacResponse {
-	s.Signature = v
-	return s
-}
-
-func (s *HmacResponse) SetRequestId(v string) *HmacResponse {
-	s.RequestId = &v
 	return s
 }
 
 type SignRequest struct {
-	Headers     map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	KeyId       *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Algorithm   *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	Digest      []byte             `json:"Digest,omitempty" xml:"Digest,omitempty"`
-	Message     []byte             `json:"Message,omitempty" xml:"Message,omitempty"`
-	MessageType *string            `json:"MessageType,omitempty" xml:"MessageType,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 签名消息
+	Message []byte `json:"Message,omitempty" xml:"Message,omitempty"`
+	// 消息类型: 1. RAW（默认值）：原始数据2. DIGEST：原始数据的消息摘要
+	MessageType *string `json:"MessageType,omitempty" xml:"MessageType,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s SignRequest) String() string {
@@ -295,11 +263,6 @@ func (s SignRequest) GoString() string {
 	return s.String()
 }
 
-func (s *SignRequest) SetHeaders(v map[string]*string) *SignRequest {
-	s.Headers = v
-	return s
-}
-
 func (s *SignRequest) SetKeyId(v string) *SignRequest {
 	s.KeyId = &v
 	return s
@@ -307,11 +270,6 @@ func (s *SignRequest) SetKeyId(v string) *SignRequest {
 
 func (s *SignRequest) SetAlgorithm(v string) *SignRequest {
 	s.Algorithm = &v
-	return s
-}
-
-func (s *SignRequest) SetDigest(v []byte) *SignRequest {
-	s.Digest = v
 	return s
 }
 
@@ -325,13 +283,24 @@ func (s *SignRequest) SetMessageType(v string) *SignRequest {
 	return s
 }
 
+func (s *SignRequest) SetHeaders(v map[string]*string) *SignRequest {
+	s.Headers = v
+	return s
+}
+
 type SignResponse struct {
-	Headers     map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	KeyId       *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Signature   []byte             `json:"Signature,omitempty" xml:"Signature,omitempty"`
-	Algorithm   *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	MessageType *string            `json:"MessageType,omitempty" xml:"MessageType,omitempty"`
-	RequestId   *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 计算出来的签名值
+	Signature []byte `json:"Signature,omitempty" xml:"Signature,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 消息类型: 1. RAW（默认值）：原始数据2. DIGEST：原始数据的消息摘要
+	MessageType *string `json:"MessageType,omitempty" xml:"MessageType,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s SignResponse) String() string {
@@ -342,11 +311,6 @@ func (s SignResponse) GoString() string {
 	return s.String()
 }
 
-func (s *SignResponse) SetHeaders(v map[string]*string) *SignResponse {
-	s.Headers = v
-	return s
-}
-
 func (s *SignResponse) SetKeyId(v string) *SignResponse {
 	s.KeyId = &v
 	return s
@@ -354,6 +318,11 @@ func (s *SignResponse) SetKeyId(v string) *SignResponse {
 
 func (s *SignResponse) SetSignature(v []byte) *SignResponse {
 	s.Signature = v
+	return s
+}
+
+func (s *SignResponse) SetRequestId(v string) *SignResponse {
+	s.RequestId = &v
 	return s
 }
 
@@ -367,19 +336,24 @@ func (s *SignResponse) SetMessageType(v string) *SignResponse {
 	return s
 }
 
-func (s *SignResponse) SetRequestId(v string) *SignResponse {
-	s.RequestId = &v
+func (s *SignResponse) SetHeaders(v map[string]*string) *SignResponse {
+	s.Headers = v
 	return s
 }
 
 type VerifyRequest struct {
-	Headers     map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	KeyId       *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Signature   []byte             `json:"Signature,omitempty" xml:"Signature,omitempty"`
-	Algorithm   *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	Digest      []byte             `json:"Digest,omitempty" xml:"Digest,omitempty"`
-	Message     []byte             `json:"Message,omitempty" xml:"Message,omitempty"`
-	MessageType *string            `json:"MessageType,omitempty" xml:"MessageType,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 计算出来的签名值
+	Signature []byte `json:"Signature,omitempty" xml:"Signature,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 签名消息
+	Message []byte `json:"Message,omitempty" xml:"Message,omitempty"`
+	// 消息类型: 1. RAW（默认值）：原始数据2. DIGEST：原始数据的消息摘要
+	MessageType *string `json:"MessageType,omitempty" xml:"MessageType,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s VerifyRequest) String() string {
@@ -388,11 +362,6 @@ func (s VerifyRequest) String() string {
 
 func (s VerifyRequest) GoString() string {
 	return s.String()
-}
-
-func (s *VerifyRequest) SetHeaders(v map[string]*string) *VerifyRequest {
-	s.Headers = v
-	return s
 }
 
 func (s *VerifyRequest) SetKeyId(v string) *VerifyRequest {
@@ -410,11 +379,6 @@ func (s *VerifyRequest) SetAlgorithm(v string) *VerifyRequest {
 	return s
 }
 
-func (s *VerifyRequest) SetDigest(v []byte) *VerifyRequest {
-	s.Digest = v
-	return s
-}
-
 func (s *VerifyRequest) SetMessage(v []byte) *VerifyRequest {
 	s.Message = v
 	return s
@@ -425,13 +389,24 @@ func (s *VerifyRequest) SetMessageType(v string) *VerifyRequest {
 	return s
 }
 
+func (s *VerifyRequest) SetHeaders(v map[string]*string) *VerifyRequest {
+	s.Headers = v
+	return s
+}
+
 type VerifyResponse struct {
-	Headers     map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	KeyId       *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Value       *bool              `json:"Value,omitempty" xml:"Value,omitempty"`
-	Algorithm   *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	MessageType *string            `json:"MessageType,omitempty" xml:"MessageType,omitempty"`
-	RequestId   *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 签名验证是否通过
+	Value *bool `json:"Value,omitempty" xml:"Value,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 消息类型: 1. RAW（默认值）：原始数据2. DIGEST：原始数据的消息摘要
+	MessageType *string `json:"MessageType,omitempty" xml:"MessageType,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s VerifyResponse) String() string {
@@ -442,11 +417,6 @@ func (s VerifyResponse) GoString() string {
 	return s.String()
 }
 
-func (s *VerifyResponse) SetHeaders(v map[string]*string) *VerifyResponse {
-	s.Headers = v
-	return s
-}
-
 func (s *VerifyResponse) SetKeyId(v string) *VerifyResponse {
 	s.KeyId = &v
 	return s
@@ -454,6 +424,11 @@ func (s *VerifyResponse) SetKeyId(v string) *VerifyResponse {
 
 func (s *VerifyResponse) SetValue(v bool) *VerifyResponse {
 	s.Value = &v
+	return s
+}
+
+func (s *VerifyResponse) SetRequestId(v string) *VerifyResponse {
+	s.RequestId = &v
 	return s
 }
 
@@ -467,14 +442,16 @@ func (s *VerifyResponse) SetMessageType(v string) *VerifyResponse {
 	return s
 }
 
-func (s *VerifyResponse) SetRequestId(v string) *VerifyResponse {
-	s.RequestId = &v
+func (s *VerifyResponse) SetHeaders(v map[string]*string) *VerifyResponse {
+	s.Headers = v
 	return s
 }
 
 type GenerateRandomRequest struct {
-	Headers map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	Length  *int32             `json:"Length,omitempty" xml:"Length,omitempty"`
+	// 要生成的随机数字节长度
+	Length *int32 `json:"Length,omitempty" xml:"Length,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s GenerateRandomRequest) String() string {
@@ -485,20 +462,23 @@ func (s GenerateRandomRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GenerateRandomRequest) SetHeaders(v map[string]*string) *GenerateRandomRequest {
-	s.Headers = v
-	return s
-}
-
 func (s *GenerateRandomRequest) SetLength(v int32) *GenerateRandomRequest {
 	s.Length = &v
 	return s
 }
 
+func (s *GenerateRandomRequest) SetHeaders(v map[string]*string) *GenerateRandomRequest {
+	s.Headers = v
+	return s
+}
+
 type GenerateRandomResponse struct {
-	Headers   map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	Random    []byte             `json:"Random,omitempty" xml:"Random,omitempty"`
-	RequestId *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 随机数
+	Random []byte `json:"Random,omitempty" xml:"Random,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s GenerateRandomResponse) String() string {
@@ -507,11 +487,6 @@ func (s GenerateRandomResponse) String() string {
 
 func (s GenerateRandomResponse) GoString() string {
 	return s.String()
-}
-
-func (s *GenerateRandomResponse) SetHeaders(v map[string]*string) *GenerateRandomResponse {
-	s.Headers = v
-	return s
 }
 
 func (s *GenerateRandomResponse) SetRandom(v []byte) *GenerateRandomResponse {
@@ -524,12 +499,22 @@ func (s *GenerateRandomResponse) SetRequestId(v string) *GenerateRandomResponse 
 	return s
 }
 
+func (s *GenerateRandomResponse) SetHeaders(v map[string]*string) *GenerateRandomResponse {
+	s.Headers = v
+	return s
+}
+
 type GenerateDataKeyRequest struct {
-	Headers       map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	KeyId         *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Algorithm     *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	NumberOfBytes *int32             `json:"NumberOfBytes,omitempty" xml:"NumberOfBytes,omitempty"`
-	Aad           []byte             `json:"Aad,omitempty" xml:"Aad,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 生成的数据密钥的长度
+	NumberOfBytes *int32 `json:"NumberOfBytes,omitempty" xml:"NumberOfBytes,omitempty"`
+	// 对数据密钥加密时使用的GCM加密模式认证数据
+	Aad []byte `json:"Aad,omitempty" xml:"Aad,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s GenerateDataKeyRequest) String() string {
@@ -538,11 +523,6 @@ func (s GenerateDataKeyRequest) String() string {
 
 func (s GenerateDataKeyRequest) GoString() string {
 	return s.String()
-}
-
-func (s *GenerateDataKeyRequest) SetHeaders(v map[string]*string) *GenerateDataKeyRequest {
-	s.Headers = v
-	return s
 }
 
 func (s *GenerateDataKeyRequest) SetKeyId(v string) *GenerateDataKeyRequest {
@@ -565,14 +545,26 @@ func (s *GenerateDataKeyRequest) SetAad(v []byte) *GenerateDataKeyRequest {
 	return s
 }
 
+func (s *GenerateDataKeyRequest) SetHeaders(v map[string]*string) *GenerateDataKeyRequest {
+	s.Headers = v
+	return s
+}
+
 type GenerateDataKeyResponse struct {
-	Headers        map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	KeyId          *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Iv             []byte             `json:"Iv,omitempty" xml:"Iv,omitempty"`
-	Plaintext      []byte             `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
-	CiphertextBlob []byte             `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
-	Algorithm      *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	RequestId      *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 加密数据时使用的初始向量
+	Iv []byte `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	// 待加密的明文数据
+	Plaintext []byte `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
+	// 数据被指定密钥加密后的密文
+	CiphertextBlob []byte `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s GenerateDataKeyResponse) String() string {
@@ -581,11 +573,6 @@ func (s GenerateDataKeyResponse) String() string {
 
 func (s GenerateDataKeyResponse) GoString() string {
 	return s.String()
-}
-
-func (s *GenerateDataKeyResponse) SetHeaders(v map[string]*string) *GenerateDataKeyResponse {
-	s.Headers = v
-	return s
 }
 
 func (s *GenerateDataKeyResponse) SetKeyId(v string) *GenerateDataKeyResponse {
@@ -608,19 +595,26 @@ func (s *GenerateDataKeyResponse) SetCiphertextBlob(v []byte) *GenerateDataKeyRe
 	return s
 }
 
-func (s *GenerateDataKeyResponse) SetAlgorithm(v string) *GenerateDataKeyResponse {
-	s.Algorithm = &v
-	return s
-}
-
 func (s *GenerateDataKeyResponse) SetRequestId(v string) *GenerateDataKeyResponse {
 	s.RequestId = &v
 	return s
 }
 
+func (s *GenerateDataKeyResponse) SetAlgorithm(v string) *GenerateDataKeyResponse {
+	s.Algorithm = &v
+	return s
+}
+
+func (s *GenerateDataKeyResponse) SetHeaders(v map[string]*string) *GenerateDataKeyResponse {
+	s.Headers = v
+	return s
+}
+
 type GetPublicKeyRequest struct {
-	Headers map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	KeyId   *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s GetPublicKeyRequest) String() string {
@@ -631,21 +625,25 @@ func (s GetPublicKeyRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetPublicKeyRequest) SetHeaders(v map[string]*string) *GetPublicKeyRequest {
-	s.Headers = v
-	return s
-}
-
 func (s *GetPublicKeyRequest) SetKeyId(v string) *GetPublicKeyRequest {
 	s.KeyId = &v
 	return s
 }
 
+func (s *GetPublicKeyRequest) SetHeaders(v map[string]*string) *GetPublicKeyRequest {
+	s.Headers = v
+	return s
+}
+
 type GetPublicKeyResponse struct {
-	Headers   map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	KeyId     *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	PublicKey *string            `json:"PublicKey,omitempty" xml:"PublicKey,omitempty"`
-	RequestId *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// PEM格式的公钥
+	PublicKey *string `json:"PublicKey,omitempty" xml:"PublicKey,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s GetPublicKeyResponse) String() string {
@@ -654,11 +652,6 @@ func (s GetPublicKeyResponse) String() string {
 
 func (s GetPublicKeyResponse) GoString() string {
 	return s.String()
-}
-
-func (s *GetPublicKeyResponse) SetHeaders(v map[string]*string) *GetPublicKeyResponse {
-	s.Headers = v
-	return s
 }
 
 func (s *GetPublicKeyResponse) SetKeyId(v string) *GetPublicKeyResponse {
@@ -676,12 +669,22 @@ func (s *GetPublicKeyResponse) SetRequestId(v string) *GetPublicKeyResponse {
 	return s
 }
 
+func (s *GetPublicKeyResponse) SetHeaders(v map[string]*string) *GetPublicKeyResponse {
+	s.Headers = v
+	return s
+}
+
 type GetSecretValueRequest struct {
-	Headers             map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	SecretName          *string            `json:"SecretName,omitempty" xml:"SecretName,omitempty"`
-	VersionStage        *string            `json:"VersionStage,omitempty" xml:"VersionStage,omitempty"`
-	VersionId           *string            `json:"VersionId,omitempty" xml:"VersionId,omitempty"`
-	FetchExtendedConfig *bool              `json:"FetchExtendedConfig,omitempty" xml:"FetchExtendedConfig,omitempty"`
+	// 凭据名称
+	SecretName *string `json:"SecretName,omitempty" xml:"SecretName,omitempty"`
+	// 版本状态
+	VersionStage *string `json:"VersionStage,omitempty" xml:"VersionStage,omitempty"`
+	// 版本号
+	VersionId *string `json:"VersionId,omitempty" xml:"VersionId,omitempty"`
+	// 是否获取凭据的拓展配置true（默认值）：是,false：否
+	FetchExtendedConfig *bool `json:"FetchExtendedConfig,omitempty" xml:"FetchExtendedConfig,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s GetSecretValueRequest) String() string {
@@ -690,11 +693,6 @@ func (s GetSecretValueRequest) String() string {
 
 func (s GetSecretValueRequest) GoString() string {
 	return s.String()
-}
-
-func (s *GetSecretValueRequest) SetHeaders(v map[string]*string) *GetSecretValueRequest {
-	s.Headers = v
-	return s
 }
 
 func (s *GetSecretValueRequest) SetSecretName(v string) *GetSecretValueRequest {
@@ -717,21 +715,40 @@ func (s *GetSecretValueRequest) SetFetchExtendedConfig(v bool) *GetSecretValueRe
 	return s
 }
 
+func (s *GetSecretValueRequest) SetHeaders(v map[string]*string) *GetSecretValueRequest {
+	s.Headers = v
+	return s
+}
+
 type GetSecretValueResponse struct {
-	Headers           map[string]*string `json:"Headers,omitempty" xml:"Headers,omitempty"`
-	SecretName        *string            `json:"SecretName,omitempty" xml:"SecretName,omitempty"`
-	SecretType        *string            `json:"SecretType,omitempty" xml:"SecretType,omitempty"`
-	SecretData        *string            `json:"SecretData,omitempty" xml:"SecretData,omitempty"`
-	SecretDataType    *string            `json:"SecretDataType,omitempty" xml:"SecretDataType,omitempty"`
-	VersionStages     []*string          `json:"VersionStages,omitempty" xml:"VersionStages,omitempty" type:"Repeated"`
-	VersionId         *string            `json:"VersionId,omitempty" xml:"VersionId,omitempty"`
-	CreateTime        *string            `json:"CreateTime,omitempty" xml:"CreateTime,omitempty"`
-	RequestId         *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
-	LastRotationDate  *string            `json:"LastRotationDate,omitempty" xml:"LastRotationDate,omitempty"`
-	NextRotationDate  *string            `json:"NextRotationDate,omitempty" xml:"NextRotationDate,omitempty"`
-	ExtendedConfig    *string            `json:"ExtendedConfig,omitempty" xml:"ExtendedConfig,omitempty"`
-	AutomaticRotation *string            `json:"AutomaticRotation,omitempty" xml:"AutomaticRotation,omitempty"`
-	RotationInterval  *string            `json:"RotationInterval,omitempty" xml:"RotationInterval,omitempty"`
+	// 凭据名称
+	SecretName *string `json:"SecretName,omitempty" xml:"SecretName,omitempty"`
+	// 凭据类型
+	SecretType *string `json:"SecretType,omitempty" xml:"SecretType,omitempty"`
+	// 凭据值
+	SecretData *string `json:"SecretData,omitempty" xml:"SecretData,omitempty"`
+	// 凭据值类型
+	SecretDataType *string `json:"SecretDataType,omitempty" xml:"SecretDataType,omitempty"`
+	// 凭据版本的状态标记
+	VersionStages []*string `json:"VersionStages,omitempty" xml:"VersionStages,omitempty" type:"Repeated"`
+	// 凭据版本的标识符
+	VersionId *string `json:"VersionId,omitempty" xml:"VersionId,omitempty"`
+	// 创建凭据的时间
+	CreateTime *string `json:"CreateTime,omitempty" xml:"CreateTime,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 最近一次轮转的时间
+	LastRotationDate *string `json:"LastRotationDate,omitempty" xml:"LastRotationDate,omitempty"`
+	// 下一次轮转的时间
+	NextRotationDate *string `json:"NextRotationDate,omitempty" xml:"NextRotationDate,omitempty"`
+	// 凭据的拓展配置
+	ExtendedConfig *string `json:"ExtendedConfig,omitempty" xml:"ExtendedConfig,omitempty"`
+	// 是否开启自动轮转
+	AutomaticRotation *string `json:"AutomaticRotation,omitempty" xml:"AutomaticRotation,omitempty"`
+	// 凭据自动轮转的周期
+	RotationInterval *string `json:"RotationInterval,omitempty" xml:"RotationInterval,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s GetSecretValueResponse) String() string {
@@ -740,11 +757,6 @@ func (s GetSecretValueResponse) String() string {
 
 func (s GetSecretValueResponse) GoString() string {
 	return s.String()
-}
-
-func (s *GetSecretValueResponse) SetHeaders(v map[string]*string) *GetSecretValueResponse {
-	s.Headers = v
-	return s
 }
 
 func (s *GetSecretValueResponse) SetSecretName(v string) *GetSecretValueResponse {
@@ -812,14 +824,26 @@ func (s *GetSecretValueResponse) SetRotationInterval(v string) *GetSecretValueRe
 	return s
 }
 
+func (s *GetSecretValueResponse) SetHeaders(v map[string]*string) *GetSecretValueResponse {
+	s.Headers = v
+	return s
+}
+
 type AdvanceEncryptRequest struct {
-	KeyId          *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Plaintext      []byte             `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
-	Algorithm      *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	Aad            []byte             `json:"Aad,omitempty" xml:"Aad,omitempty"`
-	Iv             []byte             `json:"Iv,omitempty" xml:"Iv,omitempty"`
-	PaddingMode    *string            `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
-	Headers map[string]*string 		  `json:"Headers,omitempty" xml:"Headers,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 待加密的明文数据
+	Plaintext []byte `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 对数据密钥加密时使用的GCM加密模式认证数据
+	Aad []byte `json:"Aad,omitempty" xml:"Aad,omitempty"`
+	// 加密数据时使用的初始向量
+	Iv []byte `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	// 填充模式
+	PaddingMode *string `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s AdvanceEncryptRequest) String() string {
@@ -866,14 +890,22 @@ func (s *AdvanceEncryptRequest) SetHeaders(v map[string]*string) *AdvanceEncrypt
 }
 
 type AdvanceEncryptResponse struct {
-	KeyId           *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	CiphertextBlob  []byte             `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
-	Iv              []byte             `json:"Iv,omitempty" xml:"Iv,omitempty"`
-	RequestId       *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
-	Algorithm       *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	PaddingMode     *string            `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
-	KeyVersionId    *string            `json:"KeyVersionId,omitempty" xml:"KeyVersionId,omitempty"`
-	Headers map[string]*string 		   `json:"Headers,omitempty" xml:"Headers,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 数据被指定密钥加密后的密文
+	CiphertextBlob []byte `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
+	// 加密数据时使用的初始向量
+	Iv []byte `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 填充模式
+	PaddingMode *string `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
+	// 密钥版本唯一标识符
+	KeyVersionId *string `json:"KeyVersionId,omitempty" xml:"KeyVersionId,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s AdvanceEncryptResponse) String() string {
@@ -925,13 +957,20 @@ func (s *AdvanceEncryptResponse) SetHeaders(v map[string]*string) *AdvanceEncryp
 }
 
 type AdvanceDecryptRequest struct {
-	CiphertextBlob []byte             `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
-	KeyId          *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Algorithm      *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	Aad            []byte             `json:"Aad,omitempty" xml:"Aad,omitempty"`
-	Iv             []byte             `json:"Iv,omitempty" xml:"Iv,omitempty"`
-	PaddingMode    *string            `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
-	Headers map[string]*string 		  `json:"Headers,omitempty" xml:"Headers,omitempty"`
+	// 数据被指定密钥加密后的密文
+	CiphertextBlob []byte `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 对数据密钥加密时使用的GCM加密模式认证数据
+	Aad []byte `json:"Aad,omitempty" xml:"Aad,omitempty"`
+	// 加密数据时使用的初始向量
+	Iv []byte `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	// 填充模式
+	PaddingMode *string `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s AdvanceDecryptRequest) String() string {
@@ -978,13 +1017,20 @@ func (s *AdvanceDecryptRequest) SetHeaders(v map[string]*string) *AdvanceDecrypt
 }
 
 type AdvanceDecryptResponse struct {
-	KeyId           *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Plaintext       []byte             `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
-	RequestId       *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
-	Algorithm       *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	PaddingMode     *string            `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
-	KeyVersionId    *string            `json:"KeyVersionId,omitempty" xml:"KeyVersionId,omitempty"`
-	Headers map[string]*string 		   `json:"Headers,omitempty" xml:"Headers,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 待加密的明文数据
+	Plaintext []byte `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 填充模式
+	PaddingMode *string `json:"PaddingMode,omitempty" xml:"PaddingMode,omitempty"`
+	// 密钥版本唯一标识符
+	KeyVersionId *string `json:"KeyVersionId,omitempty" xml:"KeyVersionId,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s AdvanceDecryptResponse) String() string {
@@ -1031,10 +1077,14 @@ func (s *AdvanceDecryptResponse) SetHeaders(v map[string]*string) *AdvanceDecryp
 }
 
 type AdvanceGenerateDataKeyRequest struct {
-	KeyId          *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	NumberOfBytes  *int32             `json:"NumberOfBytes,omitempty" xml:"NumberOfBytes,omitempty"`
-	Aad            []byte             `json:"Aad,omitempty" xml:"Aad,omitempty"`
-	Headers map[string]*string 		  `json:"Headers,omitempty" xml:"Headers,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 生成的数据密钥的长度
+	NumberOfBytes *int32 `json:"NumberOfBytes,omitempty" xml:"NumberOfBytes,omitempty"`
+	// 对数据密钥加密时使用的GCM加密模式认证数据
+	Aad []byte `json:"Aad,omitempty" xml:"Aad,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s AdvanceGenerateDataKeyRequest) String() string {
@@ -1066,14 +1116,22 @@ func (s *AdvanceGenerateDataKeyRequest) SetHeaders(v map[string]*string) *Advanc
 }
 
 type AdvanceGenerateDataKeyResponse struct {
-	KeyId           *string            `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
-	Iv              []byte             `json:"Iv,omitempty" xml:"Iv,omitempty"`
-	Plaintext       []byte             `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
-	CiphertextBlob  []byte             `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
-	RequestId       *string            `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
-	Algorithm       *string            `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
-	KeyVersionId    *string            `json:"KeyVersionId,omitempty" xml:"KeyVersionId,omitempty"`
-	Headers map[string]*string 		   `json:"Headers,omitempty" xml:"Headers,omitempty"`
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 加密数据时使用的初始向量
+	Iv []byte `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	// 待加密的明文数据
+	Plaintext []byte `json:"Plaintext,omitempty" xml:"Plaintext,omitempty"`
+	// 数据被指定密钥加密后的密文
+	CiphertextBlob []byte `json:"CiphertextBlob,omitempty" xml:"CiphertextBlob,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 密钥版本唯一标识符
+	KeyVersionId *string `json:"KeyVersionId,omitempty" xml:"KeyVersionId,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 }
 
 func (s AdvanceGenerateDataKeyResponse) String() string {
@@ -1142,40 +1200,11 @@ func (client *Client) Init(config *dedicatedkmsopenapi.Config) (_err error) {
 	return nil
 }
 
-func (client *Client) EncryptWithOptions(request *EncryptRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *EncryptResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	
-	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
-	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedEncryptRequest(reqBody)
-	if _err != nil {
-		return _result, _err
-	}
-	response, _err := client.DoRequest(tea.String("Encrypt"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-
-	respBody := util.AssertAsBytes(response["body"])
-	respMap, _err := dedicatedkmsopenapiutil.ParseEncryptResponse(respBody)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = &EncryptResponse{}
-	_err = tea.Convert(map[string]interface{}{
-		"Headers":        response["headers"],
-		"RequestId":      respMap["RequestId"],
-		"KeyId":          respMap["KeyId"],
-		"CiphertextBlob": respMap["CiphertextBlob"],
-		"Iv":             respMap["Iv"],
-		"Algorithm":      respMap["Algorithm"],
-		"PaddingMode":    respMap["PaddingMode"],
-	}, &_result)
-	return _result, _err
-}
-
+/**
+ * 调用Encrypt接口将明文加密为密文
+ * @param request
+ * @return EncryptResponse
+ */
 func (client *Client) Encrypt(request *EncryptRequest) (_result *EncryptResponse, _err error) {
 	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
 	_result = &EncryptResponse{}
@@ -1187,39 +1216,62 @@ func (client *Client) Encrypt(request *EncryptRequest) (_result *EncryptResponse
 	return _result, _err
 }
 
-func (client *Client) DecryptWithOptions(request *DecryptRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *DecryptResponse, _err error) {
+/**
+ * 带运行参数调用Encrypt接口将明文加密为密文
+ * @param request
+ * @param runtime
+ * @return EncryptResponse
+ */
+func (client *Client) EncryptWithOptions(request *EncryptRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *EncryptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
-	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedDecryptRequest(reqBody)
-	if _err != nil {
-		return _result, _err
-	}
-	response, _err := client.DoRequest(tea.String("Decrypt"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedEncryptRequest(reqBody)
 	if _err != nil {
 		return _result, _err
 	}
 
-	respBody := util.AssertAsBytes(response["body"])
-	respMap, _err := dedicatedkmsopenapiutil.ParseDecryptResponse(respBody)
+	doRequestTmp, err := client.DoRequest(tea.String("Encrypt"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
 	if _err != nil {
 		return _result, _err
 	}
-	_result = &DecryptResponse{}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseEncryptResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
+	_result = &EncryptResponse{}
 	_err = tea.Convert(map[string]interface{}{
-		"Headers":     response["headers"],
-		"RequestId":   respMap["RequestId"],
-		"KeyId":       respMap["KeyId"],
-		"Plaintext":   respMap["Plaintext"],
-		"Algorithm":   respMap["Algorithm"],
-		"PaddingMode": respMap["PaddingMode"],
+		"KeyId":          respMap["KeyId"],
+		"CiphertextBlob": respMap["CiphertextBlob"],
+		"Iv":             respMap["Iv"],
+		"RequestId":      respMap["RequestId"],
+		"Algorithm":      respMap["Algorithm"],
+		"PaddingMode":    respMap["PaddingMode"],
+		"headers":        responseEntity["responseHeaders"],
 	}, &_result)
 	return _result, _err
 }
 
+/**
+ * 调用Decrypt接口将密文解密为明文
+ * @param request
+ * @return DecryptResponse
+ */
 func (client *Client) Decrypt(request *DecryptRequest) (_result *DecryptResponse, _err error) {
 	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
 	_result = &DecryptResponse{}
@@ -1231,81 +1283,61 @@ func (client *Client) Decrypt(request *DecryptRequest) (_result *DecryptResponse
 	return _result, _err
 }
 
-func (client *Client) HmacWithOptions(request *HmacRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *HmacResponse, _err error) {
+/**
+ * 带运行参数调用Decrypt接口将密文解密为明文
+ * @param request
+ * @param runtime
+ * @return DecryptResponse
+ */
+func (client *Client) DecryptWithOptions(request *DecryptRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *DecryptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
-	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedHmacRequest(reqBody)
-	if _err != nil {
-		return _result, _err
-	}
-	response, _err := client.DoRequest(tea.String("Hmac"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedDecryptRequest(reqBody)
 	if _err != nil {
 		return _result, _err
 	}
 
-	respBody := util.AssertAsBytes(response["body"])
-	respMap, _err := dedicatedkmsopenapiutil.ParseHmacResponse(respBody)
+	doRequestTmp, err := client.DoRequest(tea.String("Decrypt"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
 	if _err != nil {
 		return _result, _err
 	}
-	_result = &HmacResponse{}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseDecryptResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
+	_result = &DecryptResponse{}
 	_err = tea.Convert(map[string]interface{}{
-		"Headers":   response["headers"],
-		"RequestId": respMap["RequestId"],
-		"KeyId":     respMap["KeyId"],
-		"Signature": respMap["Signature"],
-	}, &_result)
-	return _result, _err
-}
-
-func (client *Client) Hmac(request *HmacRequest) (_result *HmacResponse, _err error) {
-	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
-	_result = &HmacResponse{}
-	_body, _err := client.HmacWithOptions(request, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) SignWithOptions(request *SignRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *SignResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	
-	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
-	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedSignRequest(reqBody)
-	if _err != nil {
-		return _result, _err
-	}
-	response, _err := client.DoRequest(tea.String("Sign"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-
-	respBody := util.AssertAsBytes(response["body"])
-	respMap, _err := dedicatedkmsopenapiutil.ParseSignResponse(respBody)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = &SignResponse{}
-	_err = tea.Convert(map[string]interface{}{
-		"Headers":     response["headers"],
-		"RequestId":   respMap["RequestId"],
 		"KeyId":       respMap["KeyId"],
-		"Signature":   respMap["Signature"],
+		"Plaintext":   respMap["Plaintext"],
+		"RequestId":   respMap["RequestId"],
 		"Algorithm":   respMap["Algorithm"],
-		"MessageType": respMap["MessageType"],
+		"PaddingMode": respMap["PaddingMode"],
+		"headers":     responseEntity["responseHeaders"],
 	}, &_result)
 	return _result, _err
 }
 
+/**
+ * 调用Sign接口使用非对称密钥进行签名
+ * @param request
+ * @return SignResponse
+ */
 func (client *Client) Sign(request *SignRequest) (_result *SignResponse, _err error) {
 	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
 	_result = &SignResponse{}
@@ -1317,39 +1349,61 @@ func (client *Client) Sign(request *SignRequest) (_result *SignResponse, _err er
 	return _result, _err
 }
 
-func (client *Client) VerifyWithOptions(request *VerifyRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *VerifyResponse, _err error) {
+/**
+ * 带运行参数调用Sign接口使用非对称密钥进行签名
+ * @param request
+ * @param runtime
+ * @return SignResponse
+ */
+func (client *Client) SignWithOptions(request *SignRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *SignResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
-	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedVerifyRequest(reqBody)
-	if _err != nil {
-		return _result, _err
-	}
-	response, _err := client.DoRequest(tea.String("Verify"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedSignRequest(reqBody)
 	if _err != nil {
 		return _result, _err
 	}
 
-	respBody := util.AssertAsBytes(response["body"])
-	respMap, _err := dedicatedkmsopenapiutil.ParseVerifyResponse(respBody)
+	doRequestTmp, err := client.DoRequest(tea.String("Sign"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
 	if _err != nil {
 		return _result, _err
 	}
-	_result = &VerifyResponse{}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseSignResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
+	_result = &SignResponse{}
 	_err = tea.Convert(map[string]interface{}{
-		"Headers":     response["headers"],
-		"RequestId":   respMap["RequestId"],
 		"KeyId":       respMap["KeyId"],
-		"Value":       respMap["Value"],
+		"Signature":   respMap["Signature"],
+		"RequestId":   respMap["RequestId"],
 		"Algorithm":   respMap["Algorithm"],
 		"MessageType": respMap["MessageType"],
+		"headers":     responseEntity["responseHeaders"],
 	}, &_result)
 	return _result, _err
 }
 
+/**
+ * 调用Verify接口使用非对称密钥进行验签
+ * @param request
+ * @return VerifyResponse
+ */
 func (client *Client) Verify(request *VerifyRequest) (_result *VerifyResponse, _err error) {
 	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
 	_result = &VerifyResponse{}
@@ -1361,36 +1415,61 @@ func (client *Client) Verify(request *VerifyRequest) (_result *VerifyResponse, _
 	return _result, _err
 }
 
-func (client *Client) GenerateRandomWithOptions(request *GenerateRandomRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *GenerateRandomResponse, _err error) {
+/**
+ * 带运行参数调用Verify接口使用非对称密钥进行验签
+ * @param request
+ * @param runtime
+ * @return VerifyResponse
+ */
+func (client *Client) VerifyWithOptions(request *VerifyRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *VerifyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
-	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedGenerateRandomRequest(reqBody)
-	if _err != nil {
-		return _result, _err
-	}
-	response, _err := client.DoRequest(tea.String("GenerateRandom"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedVerifyRequest(reqBody)
 	if _err != nil {
 		return _result, _err
 	}
 
-	respBody := util.AssertAsBytes(response["body"])
-	respMap, _err := dedicatedkmsopenapiutil.ParseGenerateRandomResponse(respBody)
+	doRequestTmp, err := client.DoRequest(tea.String("Verify"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
 	if _err != nil {
 		return _result, _err
 	}
-	_result = &GenerateRandomResponse{}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseVerifyResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
+	_result = &VerifyResponse{}
 	_err = tea.Convert(map[string]interface{}{
-		"Headers":   response["headers"],
-		"RequestId": respMap["RequestId"],
-		"Random":    respMap["Random"],
+		"KeyId":       respMap["KeyId"],
+		"Value":       respMap["Value"],
+		"RequestId":   respMap["RequestId"],
+		"Algorithm":   respMap["Algorithm"],
+		"MessageType": respMap["MessageType"],
+		"headers":     responseEntity["responseHeaders"],
 	}, &_result)
 	return _result, _err
 }
 
+/**
+ * 调用GenerateRandom接口生成一个随机数
+ * @param request
+ * @return GenerateRandomResponse
+ */
 func (client *Client) GenerateRandom(request *GenerateRandomRequest) (_result *GenerateRandomResponse, _err error) {
 	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
 	_result = &GenerateRandomResponse{}
@@ -1402,40 +1481,58 @@ func (client *Client) GenerateRandom(request *GenerateRandomRequest) (_result *G
 	return _result, _err
 }
 
-func (client *Client) GenerateDataKeyWithOptions(request *GenerateDataKeyRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *GenerateDataKeyResponse, _err error) {
+/**
+ * 带运行参数调用GenerateRandom接口生成一个随机数
+ * @param request
+ * @param runtime
+ * @return GenerateRandomResponse
+ */
+func (client *Client) GenerateRandomWithOptions(request *GenerateRandomRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *GenerateRandomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
-	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedGenerateDataKeyRequest(reqBody)
-	if _err != nil {
-		return _result, _err
-	}
-	response, _err := client.DoRequest(tea.String("GenerateDataKey"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedGenerateRandomRequest(reqBody)
 	if _err != nil {
 		return _result, _err
 	}
 
-	respBody := util.AssertAsBytes(response["body"])
-	respMap, _err := dedicatedkmsopenapiutil.ParseGenerateDataKeyResponse(respBody)
+	doRequestTmp, err := client.DoRequest(tea.String("GenerateRandom"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
 	if _err != nil {
 		return _result, _err
 	}
-	_result = &GenerateDataKeyResponse{}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseGenerateRandomResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
+	_result = &GenerateRandomResponse{}
 	_err = tea.Convert(map[string]interface{}{
-		"Headers":        response["headers"],
-		"RequestId":      respMap["RequestId"],
-		"KeyId":          respMap["KeyId"],
-		"Iv":             respMap["Iv"],
-		"Plaintext":      respMap["Plaintext"],
-		"CiphertextBlob": respMap["CiphertextBlob"],
-		"Algorithm":      respMap["Algorithm"],
+		"Random":    respMap["Random"],
+		"RequestId": respMap["RequestId"],
+		"headers":   responseEntity["responseHeaders"],
 	}, &_result)
 	return _result, _err
 }
 
+/**
+ * 调用GenerateDataKey接口生成数据密钥
+ * @param request
+ * @return GenerateDataKeyResponse
+ */
 func (client *Client) GenerateDataKey(request *GenerateDataKeyRequest) (_result *GenerateDataKeyResponse, _err error) {
 	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
 	_result = &GenerateDataKeyResponse{}
@@ -1447,37 +1544,62 @@ func (client *Client) GenerateDataKey(request *GenerateDataKeyRequest) (_result 
 	return _result, _err
 }
 
-func (client *Client) GetPublicKeyWithOptions(request *GetPublicKeyRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *GetPublicKeyResponse, _err error) {
+/**
+ * 带运行参数调用GenerateDataKey接口生成数据密钥
+ * @param request
+ * @param runtime
+ * @return GenerateDataKeyResponse
+ */
+func (client *Client) GenerateDataKeyWithOptions(request *GenerateDataKeyRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *GenerateDataKeyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
-	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedGetPublicKeyRequest(reqBody)
-	if _err != nil {
-		return _result, _err
-	}
-	response, _err := client.DoRequest(tea.String("GetPublicKey"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedGenerateDataKeyRequest(reqBody)
 	if _err != nil {
 		return _result, _err
 	}
 
-	respBody := util.AssertAsBytes(response["body"])
-	respMap, _err := dedicatedkmsopenapiutil.ParseGetPublicKeyResponse(respBody)
+	doRequestTmp, err := client.DoRequest(tea.String("GenerateDataKey"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
 	if _err != nil {
 		return _result, _err
 	}
-	_result = &GetPublicKeyResponse{}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseGenerateDataKeyResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
+	_result = &GenerateDataKeyResponse{}
 	_err = tea.Convert(map[string]interface{}{
-		"Headers":   response["headers"],
-		"RequestId": respMap["RequestId"],
-		"KeyId":     respMap["KeyId"],
-		"PublicKey": respMap["PublicKey"],
+		"KeyId":          respMap["KeyId"],
+		"Iv":             respMap["Iv"],
+		"Plaintext":      respMap["Plaintext"],
+		"CiphertextBlob": respMap["CiphertextBlob"],
+		"RequestId":      respMap["RequestId"],
+		"Algorithm":      respMap["Algorithm"],
+		"headers":        responseEntity["responseHeaders"],
 	}, &_result)
 	return _result, _err
 }
 
+/**
+ * 调用GetPublicKey接口获取指定非对称密钥的公钥
+ * @param request
+ * @return GetPublicKeyResponse
+ */
 func (client *Client) GetPublicKey(request *GetPublicKeyRequest) (_result *GetPublicKeyResponse, _err error) {
 	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
 	_result = &GetPublicKeyResponse{}
@@ -1489,46 +1611,59 @@ func (client *Client) GetPublicKey(request *GetPublicKeyRequest) (_result *GetPu
 	return _result, _err
 }
 
-func (client *Client) GetSecretValueWithOptions(request *GetSecretValueRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *GetSecretValueResponse, _err error) {
+/**
+ * 带运行参数调用GetPublicKey接口获取指定非对称密钥的公钥
+ * @param request
+ * @param runtime
+ * @return GetPublicKeyResponse
+ */
+func (client *Client) GetPublicKeyWithOptions(request *GetPublicKeyRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *GetPublicKeyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
-	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedGetSecretValueRequest(reqBody)
-	if _err != nil {
-		return _result, _err
-	}
-	response, _err := client.DoRequest(tea.String("GetSecretValue"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedGetPublicKeyRequest(reqBody)
 	if _err != nil {
 		return _result, _err
 	}
 
-	respBody := util.AssertAsBytes(response["body"])
-	respMap, _err := dedicatedkmsopenapiutil.ParseGetSecretValueResponse(respBody)
+	doRequestTmp, err := client.DoRequest(tea.String("GetPublicKey"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
 	if _err != nil {
 		return _result, _err
 	}
-	_result = &GetSecretValueResponse{}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseGetPublicKeyResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
+	_result = &GetPublicKeyResponse{}
 	_err = tea.Convert(map[string]interface{}{
-		"Headers":           response["headers"],
-		"RequestId":         respMap["RequestId"],
-		"SecretName":        respMap["SecretName"],
-		"SecretType":        respMap["SecretType"],
-		"SecretData":        respMap["SecretData"],
-		"SecretDataType":    respMap["SecretDataType"],
-		"VersionStages":     respMap["VersionStages"],
-		"VersionId":         respMap["VersionId"],
-		"CreateTime":        respMap["CreateTime"],
-		"LastRotationDate":  respMap["LastRotationDate"],
-		"NextRotationDate":  respMap["NextRotationDate"],
-		"ExtendedConfig":    respMap["ExtendedConfig"],
-		"AutomaticRotation": respMap["AutomaticRotation"],
-		"RotationInterval":  respMap["RotationInterval"],
+		"KeyId":     respMap["KeyId"],
+		"PublicKey": respMap["PublicKey"],
+		"RequestId": respMap["RequestId"],
+		"headers":   responseEntity["responseHeaders"],
 	}, &_result)
 	return _result, _err
 }
 
+/**
+ * 调用GetSecretValue接口通过KMS实例网关获取凭据值
+ * @param request
+ * @return GetSecretValueResponse
+ */
 func (client *Client) GetSecretValue(request *GetSecretValueRequest) (_result *GetSecretValueResponse, _err error) {
 	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
 	_result = &GetSecretValueResponse{}
@@ -1540,6 +1675,69 @@ func (client *Client) GetSecretValue(request *GetSecretValueRequest) (_result *G
 	return _result, _err
 }
 
+/**
+ * 带运行参数调用GetSecretValue接口通过KMS实例网关获取凭据值
+ * @param request
+ * @param runtime
+ * @return GetSecretValueResponse
+ */
+func (client *Client) GetSecretValueWithOptions(request *GetSecretValueRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *GetSecretValueResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedGetSecretValueRequest(reqBody)
+	if _err != nil {
+		return _result, _err
+	}
+
+	doRequestTmp, err := client.DoRequest(tea.String("GetSecretValue"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
+	if _err != nil {
+		return _result, _err
+	}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseGetSecretValueResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
+	_result = &GetSecretValueResponse{}
+	_err = tea.Convert(map[string]interface{}{
+		"SecretName":        respMap["SecretName"],
+		"SecretType":        respMap["SecretType"],
+		"SecretData":        respMap["SecretData"],
+		"SecretDataType":    respMap["SecretDataType"],
+		"VersionStages":     respMap["VersionStages"],
+		"VersionId":         respMap["VersionId"],
+		"CreateTime":        respMap["CreateTime"],
+		"RequestId":         respMap["RequestId"],
+		"LastRotationDate":  respMap["LastRotationDate"],
+		"NextRotationDate":  respMap["NextRotationDate"],
+		"ExtendedConfig":    respMap["ExtendedConfig"],
+		"AutomaticRotation": respMap["AutomaticRotation"],
+		"RotationInterval":  respMap["RotationInterval"],
+		"headers":           responseEntity["responseHeaders"],
+	}, &_result)
+	return _result, _err
+}
+
+/**
+ * 调用AdvanceEncrypt接口将明文高级加密为密文
+ * @param request
+ * @return AdvanceEncryptResponse
+ */
 func (client *Client) AdvanceEncrypt(request *AdvanceEncryptRequest) (_result *AdvanceEncryptResponse, _err error) {
 	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
 	_result = &AdvanceEncryptResponse{}
@@ -1551,40 +1749,63 @@ func (client *Client) AdvanceEncrypt(request *AdvanceEncryptRequest) (_result *A
 	return _result, _err
 }
 
+/**
+ * 带运行参数调用AdvanceEncrypt接口将明文高级加密为密文
+ * @param request
+ * @param runtime
+ * @return AdvanceEncryptResponse
+ */
 func (client *Client) AdvanceEncryptWithOptions(request *AdvanceEncryptRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *AdvanceEncryptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
-	reqBodyBytes, err := dedicatedkmsopenapiutil.GetSerializedAdvanceEncryptRequest(reqBody)
-	response, err := client.DoRequest(tea.String("AdvanceEncrypt"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
-	if err != nil {
-		_err = err
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedAdvanceEncryptRequest(reqBody)
+	if _err != nil {
 		return _result, _err
 	}
 
-	respBody := util.AssertAsBytes(response["body"])
-	respMap, err := dedicatedkmsopenapiutil.ParseAdvanceEncryptResponse(respBody)
+	doRequestTmp, err := client.DoRequest(tea.String("AdvanceEncrypt"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
 	if err != nil {
 		_err = err
 		return _result, _err
 	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
+	if _err != nil {
+		return _result, _err
+	}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseAdvanceEncryptResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
 	_result = &AdvanceEncryptResponse{}
 	_err = tea.Convert(map[string]interface{}{
-		"KeyId":           respMap["KeyId"],
-		"CiphertextBlob":  respMap["CiphertextBlob"],
-		"Iv":              respMap["Iv"],
-		"RequestId":       respMap["RequestId"],
-		"Algorithm":       respMap["Algorithm"],
-		"PaddingMode":     respMap["PaddingMode"],
-		"KeyVersionId":    respMap["KeyVersionId"],
-		"Headers": 		   response["headers"],
+		"KeyId":          respMap["KeyId"],
+		"CiphertextBlob": respMap["CiphertextBlob"],
+		"Iv":             respMap["Iv"],
+		"RequestId":      respMap["RequestId"],
+		"Algorithm":      respMap["Algorithm"],
+		"PaddingMode":    respMap["PaddingMode"],
+		"KeyVersionId":   respMap["KeyVersionId"],
+		"headers":        responseEntity["responseHeaders"],
 	}, &_result)
 	return _result, _err
 }
 
+/**
+ * 调用AdvanceDecrypt接口将密文高级解密为明文
+ * @param request
+ * @return AdvanceDecryptResponse
+ */
 func (client *Client) AdvanceDecrypt(request *AdvanceDecryptRequest) (_result *AdvanceDecryptResponse, _err error) {
 	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
 	_result = &AdvanceDecryptResponse{}
@@ -1596,39 +1817,62 @@ func (client *Client) AdvanceDecrypt(request *AdvanceDecryptRequest) (_result *A
 	return _result, _err
 }
 
+/**
+ * 带运行参数调用AdvanceDecrypt接口将密文高级解密为明文
+ * @param request
+ * @param runtime
+ * @return AdvanceDecryptResponse
+ */
 func (client *Client) AdvanceDecryptWithOptions(request *AdvanceDecryptRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *AdvanceDecryptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
-	reqBodyBytes, err := dedicatedkmsopenapiutil.GetSerializedAdvanceDecryptRequest(reqBody)
-	response, err := client.DoRequest(tea.String("AdvanceDecrypt"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
-	if err != nil {
-		_err = err
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedAdvanceDecryptRequest(reqBody)
+	if _err != nil {
 		return _result, _err
 	}
 
-	respBody := util.AssertAsBytes(response["body"])
-	respMap, err := dedicatedkmsopenapiutil.ParseAdvanceDecryptResponse(respBody)
+	doRequestTmp, err := client.DoRequest(tea.String("AdvanceDecrypt"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
 	if err != nil {
 		_err = err
 		return _result, _err
 	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
+	if _err != nil {
+		return _result, _err
+	}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseAdvanceDecryptResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
 	_result = &AdvanceDecryptResponse{}
 	_err = tea.Convert(map[string]interface{}{
-		"KeyId":           respMap["KeyId"],
-		"Plaintext":       respMap["Plaintext"],
-		"RequestId":       respMap["RequestId"],
-		"Algorithm":       respMap["Algorithm"],
-		"PaddingMode":     respMap["PaddingMode"],
-		"KeyVersionId":    respMap["KeyVersionId"],
-		"Headers": response["headers"],
+		"KeyId":        respMap["KeyId"],
+		"Plaintext":    respMap["Plaintext"],
+		"RequestId":    respMap["RequestId"],
+		"Algorithm":    respMap["Algorithm"],
+		"PaddingMode":  respMap["PaddingMode"],
+		"KeyVersionId": respMap["KeyVersionId"],
+		"headers":      responseEntity["responseHeaders"],
 	}, &_result)
 	return _result, _err
 }
 
+/**
+ * 调用AdvanceGenerateDataKey接口高级生成数据密钥
+ * @param request
+ * @return AdvanceGenerateDataKeyRequest
+ */
 func (client *Client) AdvanceGenerateDataKey(request *AdvanceGenerateDataKeyRequest) (_result *AdvanceGenerateDataKeyResponse, _err error) {
 	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
 	_result = &AdvanceGenerateDataKeyResponse{}
@@ -1640,36 +1884,54 @@ func (client *Client) AdvanceGenerateDataKey(request *AdvanceGenerateDataKeyRequ
 	return _result, _err
 }
 
+/**
+ * 带运行参数调用AdvanceGenerateDataKey接口高级生成数据密钥
+ * @param request
+ * @param runtime
+ * @return AdvanceGenerateDataKeyRequest
+ */
 func (client *Client) AdvanceGenerateDataKeyWithOptions(request *AdvanceGenerateDataKeyRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *AdvanceGenerateDataKeyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	
 	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
-	reqBodyBytes, err := dedicatedkmsopenapiutil.GetSerializedAdvanceGenerateDataKeyRequest(reqBody)
-	response, err := client.DoRequest(tea.String("AdvanceGenerateDataKey"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, request.Headers, runtime)
-	if err != nil {
-		_err = err
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedAdvanceGenerateDataKeyRequest(reqBody)
+	if _err != nil {
 		return _result, _err
 	}
 
-	respBody := util.AssertAsBytes(response["body"])
-	respMap, err := dedicatedkmsopenapiutil.ParseAdvanceGenerateDataKeyResponse(respBody)
+	doRequestTmp, err := client.DoRequest(tea.String("AdvanceGenerateDataKey"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
 	if err != nil {
 		_err = err
 		return _result, _err
 	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
+	if _err != nil {
+		return _result, _err
+	}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseAdvanceGenerateDataKeyResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
 	_result = &AdvanceGenerateDataKeyResponse{}
 	_err = tea.Convert(map[string]interface{}{
-		"KeyId":           respMap["KeyId"],
-		"Iv":              respMap["Iv"],
-		"Plaintext":       respMap["Plaintext"],
-		"CiphertextBlob":  respMap["CiphertextBlob"],
-		"RequestId":       respMap["RequestId"],
-		"Algorithm":       respMap["Algorithm"],
-		"KeyVersionId":    respMap["KeyVersionId"],
-		"Headers": response["headers"],
+		"KeyId":          respMap["KeyId"],
+		"Iv":             respMap["Iv"],
+		"Plaintext":      respMap["Plaintext"],
+		"CiphertextBlob": respMap["CiphertextBlob"],
+		"RequestId":      respMap["RequestId"],
+		"Algorithm":      respMap["Algorithm"],
+		"KeyVersionId":   respMap["KeyVersionId"],
+		"headers":        responseEntity["responseHeaders"],
 	}, &_result)
 	return _result, _err
 }
