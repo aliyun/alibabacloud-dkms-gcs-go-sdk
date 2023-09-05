@@ -2,10 +2,10 @@
 package client
 
 import (
-  encodeutil "github.com/alibabacloud-go/darabonba-encode-util/client"
-  util "github.com/alibabacloud-go/tea-utils/v2/service"
+  util  "github.com/alibabacloud-go/tea-utils/v2/service"
+  dedicatedkmsopenapiutil  "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-util"
+  encodeutil  "github.com/alibabacloud-go/darabonba-encode-util/client"
   "github.com/alibabacloud-go/tea/tea"
-  dedicatedkmsopenapiutil "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-util"
 )
 
 type Config struct {
