@@ -422,7 +422,6 @@ func (client *Client) DoRequest(apiName *string, apiVersion *string, protocol *s
 		if !tea.BoolValue(tea.Retryable(_err)) && !tea.BoolValue(dedicatedkmsopenapiutil.IsRetryErr(sdkError)) {
 			break
 		}
-
 	}
 
 	return _resp, _err

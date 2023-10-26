@@ -1182,6 +1182,500 @@ func (s *AdvanceGenerateDataKeyResponse) SetHeaders(v map[string]*string) *Advan
 	return s
 }
 
+type GenerateDataKeyPairRequest struct {
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 指定生成的数据密钥对类型
+	KeyPairSpec *string `json:"KeyPairSpec,omitempty" xml:"KeyPairSpec,omitempty"`
+	// 生成数据密钥对格式，取值:PEM,DER
+	KeyFormat *string `json:"KeyFormat,omitempty" xml:"KeyFormat,omitempty"`
+	// 对数据密钥加密时使用的GCM加密模式认证数据
+	Aad []byte `json:"Aad,omitempty" xml:"Aad,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+}
+
+func (s GenerateDataKeyPairRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateDataKeyPairRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateDataKeyPairRequest) SetKeyId(v string) *GenerateDataKeyPairRequest {
+	s.KeyId = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairRequest) SetAlgorithm(v string) *GenerateDataKeyPairRequest {
+	s.Algorithm = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairRequest) SetKeyPairSpec(v string) *GenerateDataKeyPairRequest {
+	s.KeyPairSpec = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairRequest) SetKeyFormat(v string) *GenerateDataKeyPairRequest {
+	s.KeyFormat = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairRequest) SetAad(v []byte) *GenerateDataKeyPairRequest {
+	s.Aad = v
+	return s
+}
+
+func (s *GenerateDataKeyPairRequest) SetHeaders(v map[string]*string) *GenerateDataKeyPairRequest {
+	s.Headers = v
+	return s
+}
+
+type GenerateDataKeyPairResponse struct {
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 加密数据时使用的初始向量
+	Iv []byte `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	// 指定生成的数据密钥对类型
+	KeyPairSpec *string `json:"KeyPairSpec,omitempty" xml:"KeyPairSpec,omitempty"`
+	// 私钥明文
+	PrivateKeyPlaintext []byte `json:"PrivateKeyPlaintext,omitempty" xml:"PrivateKeyPlaintext,omitempty"`
+	// 私钥密文
+	PrivateKeyCiphertextBlob []byte `json:"PrivateKeyCiphertextBlob,omitempty" xml:"PrivateKeyCiphertextBlob,omitempty"`
+	// 公钥
+	PublicKey []byte `json:"PublicKey,omitempty" xml:"PublicKey,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+}
+
+func (s GenerateDataKeyPairResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateDataKeyPairResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateDataKeyPairResponse) SetKeyId(v string) *GenerateDataKeyPairResponse {
+	s.KeyId = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairResponse) SetIv(v []byte) *GenerateDataKeyPairResponse {
+	s.Iv = v
+	return s
+}
+
+func (s *GenerateDataKeyPairResponse) SetKeyPairSpec(v string) *GenerateDataKeyPairResponse {
+	s.KeyPairSpec = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairResponse) SetPrivateKeyPlaintext(v []byte) *GenerateDataKeyPairResponse {
+	s.PrivateKeyPlaintext = v
+	return s
+}
+
+func (s *GenerateDataKeyPairResponse) SetPrivateKeyCiphertextBlob(v []byte) *GenerateDataKeyPairResponse {
+	s.PrivateKeyCiphertextBlob = v
+	return s
+}
+
+func (s *GenerateDataKeyPairResponse) SetPublicKey(v []byte) *GenerateDataKeyPairResponse {
+	s.PublicKey = v
+	return s
+}
+
+func (s *GenerateDataKeyPairResponse) SetRequestId(v string) *GenerateDataKeyPairResponse {
+	s.RequestId = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairResponse) SetAlgorithm(v string) *GenerateDataKeyPairResponse {
+	s.Algorithm = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairResponse) SetHeaders(v map[string]*string) *GenerateDataKeyPairResponse {
+	s.Headers = v
+	return s
+}
+
+type GenerateDataKeyPairWithoutPlaintextRequest struct {
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 指定生成的数据密钥对类型
+	KeyPairSpec *string `json:"KeyPairSpec,omitempty" xml:"KeyPairSpec,omitempty"`
+	// 生成数据密钥对格式，取值:PEM,DER
+	KeyFormat *string `json:"KeyFormat,omitempty" xml:"KeyFormat,omitempty"`
+	// 对数据密钥加密时使用的GCM加密模式认证数据
+	Aad []byte `json:"Aad,omitempty" xml:"Aad,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+}
+
+func (s GenerateDataKeyPairWithoutPlaintextRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateDataKeyPairWithoutPlaintextRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateDataKeyPairWithoutPlaintextRequest) SetKeyId(v string) *GenerateDataKeyPairWithoutPlaintextRequest {
+	s.KeyId = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairWithoutPlaintextRequest) SetAlgorithm(v string) *GenerateDataKeyPairWithoutPlaintextRequest {
+	s.Algorithm = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairWithoutPlaintextRequest) SetKeyPairSpec(v string) *GenerateDataKeyPairWithoutPlaintextRequest {
+	s.KeyPairSpec = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairWithoutPlaintextRequest) SetKeyFormat(v string) *GenerateDataKeyPairWithoutPlaintextRequest {
+	s.KeyFormat = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairWithoutPlaintextRequest) SetAad(v []byte) *GenerateDataKeyPairWithoutPlaintextRequest {
+	s.Aad = v
+	return s
+}
+
+func (s *GenerateDataKeyPairWithoutPlaintextRequest) SetHeaders(v map[string]*string) *GenerateDataKeyPairWithoutPlaintextRequest {
+	s.Headers = v
+	return s
+}
+
+type GenerateDataKeyPairWithoutPlaintextResponse struct {
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 加密数据时使用的初始向量
+	Iv []byte `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	// 指定生成的数据密钥对类型
+	KeyPairSpec *string `json:"KeyPairSpec,omitempty" xml:"KeyPairSpec,omitempty"`
+	// 私钥密文
+	PrivateKeyCiphertextBlob []byte `json:"PrivateKeyCiphertextBlob,omitempty" xml:"PrivateKeyCiphertextBlob,omitempty"`
+	// 公钥
+	PublicKey []byte `json:"PublicKey,omitempty" xml:"PublicKey,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+}
+
+func (s GenerateDataKeyPairWithoutPlaintextResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateDataKeyPairWithoutPlaintextResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateDataKeyPairWithoutPlaintextResponse) SetKeyId(v string) *GenerateDataKeyPairWithoutPlaintextResponse {
+	s.KeyId = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairWithoutPlaintextResponse) SetIv(v []byte) *GenerateDataKeyPairWithoutPlaintextResponse {
+	s.Iv = v
+	return s
+}
+
+func (s *GenerateDataKeyPairWithoutPlaintextResponse) SetKeyPairSpec(v string) *GenerateDataKeyPairWithoutPlaintextResponse {
+	s.KeyPairSpec = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairWithoutPlaintextResponse) SetPrivateKeyCiphertextBlob(v []byte) *GenerateDataKeyPairWithoutPlaintextResponse {
+	s.PrivateKeyCiphertextBlob = v
+	return s
+}
+
+func (s *GenerateDataKeyPairWithoutPlaintextResponse) SetPublicKey(v []byte) *GenerateDataKeyPairWithoutPlaintextResponse {
+	s.PublicKey = v
+	return s
+}
+
+func (s *GenerateDataKeyPairWithoutPlaintextResponse) SetRequestId(v string) *GenerateDataKeyPairWithoutPlaintextResponse {
+	s.RequestId = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairWithoutPlaintextResponse) SetAlgorithm(v string) *GenerateDataKeyPairWithoutPlaintextResponse {
+	s.Algorithm = &v
+	return s
+}
+
+func (s *GenerateDataKeyPairWithoutPlaintextResponse) SetHeaders(v map[string]*string) *GenerateDataKeyPairWithoutPlaintextResponse {
+	s.Headers = v
+	return s
+}
+
+type AdvanceGenerateDataKeyPairRequest struct {
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 指定生成的数据密钥对类型
+	KeyPairSpec *string `json:"KeyPairSpec,omitempty" xml:"KeyPairSpec,omitempty"`
+	// 生成数据密钥对格式，取值:PEM,DER
+	KeyFormat *string `json:"KeyFormat,omitempty" xml:"KeyFormat,omitempty"`
+	// 对数据密钥加密时使用的GCM加密模式认证数据
+	Aad []byte `json:"Aad,omitempty" xml:"Aad,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+}
+
+func (s AdvanceGenerateDataKeyPairRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdvanceGenerateDataKeyPairRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AdvanceGenerateDataKeyPairRequest) SetKeyId(v string) *AdvanceGenerateDataKeyPairRequest {
+	s.KeyId = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairRequest) SetKeyPairSpec(v string) *AdvanceGenerateDataKeyPairRequest {
+	s.KeyPairSpec = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairRequest) SetKeyFormat(v string) *AdvanceGenerateDataKeyPairRequest {
+	s.KeyFormat = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairRequest) SetAad(v []byte) *AdvanceGenerateDataKeyPairRequest {
+	s.Aad = v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairRequest) SetHeaders(v map[string]*string) *AdvanceGenerateDataKeyPairRequest {
+	s.Headers = v
+	return s
+}
+
+type AdvanceGenerateDataKeyPairResponse struct {
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 加密数据时使用的初始向量
+	Iv []byte `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	// 指定生成的数据密钥对类型
+	KeyPairSpec *string `json:"KeyPairSpec,omitempty" xml:"KeyPairSpec,omitempty"`
+	// 私钥明文
+	PrivateKeyPlaintext []byte `json:"PrivateKeyPlaintext,omitempty" xml:"PrivateKeyPlaintext,omitempty"`
+	// 私钥密文
+	PrivateKeyCiphertextBlob []byte `json:"PrivateKeyCiphertextBlob,omitempty" xml:"PrivateKeyCiphertextBlob,omitempty"`
+	// 公钥
+	PublicKey []byte `json:"PublicKey,omitempty" xml:"PublicKey,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 密钥版本唯一标识符
+	KeyVersionId *string `json:"KeyVersionId,omitempty" xml:"KeyVersionId,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+}
+
+func (s AdvanceGenerateDataKeyPairResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdvanceGenerateDataKeyPairResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AdvanceGenerateDataKeyPairResponse) SetKeyId(v string) *AdvanceGenerateDataKeyPairResponse {
+	s.KeyId = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairResponse) SetIv(v []byte) *AdvanceGenerateDataKeyPairResponse {
+	s.Iv = v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairResponse) SetKeyPairSpec(v string) *AdvanceGenerateDataKeyPairResponse {
+	s.KeyPairSpec = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairResponse) SetPrivateKeyPlaintext(v []byte) *AdvanceGenerateDataKeyPairResponse {
+	s.PrivateKeyPlaintext = v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairResponse) SetPrivateKeyCiphertextBlob(v []byte) *AdvanceGenerateDataKeyPairResponse {
+	s.PrivateKeyCiphertextBlob = v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairResponse) SetPublicKey(v []byte) *AdvanceGenerateDataKeyPairResponse {
+	s.PublicKey = v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairResponse) SetRequestId(v string) *AdvanceGenerateDataKeyPairResponse {
+	s.RequestId = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairResponse) SetAlgorithm(v string) *AdvanceGenerateDataKeyPairResponse {
+	s.Algorithm = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairResponse) SetKeyVersionId(v string) *AdvanceGenerateDataKeyPairResponse {
+	s.KeyVersionId = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairResponse) SetHeaders(v map[string]*string) *AdvanceGenerateDataKeyPairResponse {
+	s.Headers = v
+	return s
+}
+
+type AdvanceGenerateDataKeyPairWithoutPlaintextRequest struct {
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 指定生成的数据密钥对类型
+	KeyPairSpec *string `json:"KeyPairSpec,omitempty" xml:"KeyPairSpec,omitempty"`
+	// 生成数据密钥对格式，取值:PEM,DER
+	KeyFormat *string `json:"KeyFormat,omitempty" xml:"KeyFormat,omitempty"`
+	// 对数据密钥加密时使用的GCM加密模式认证数据
+	Aad []byte `json:"Aad,omitempty" xml:"Aad,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+}
+
+func (s AdvanceGenerateDataKeyPairWithoutPlaintextRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdvanceGenerateDataKeyPairWithoutPlaintextRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AdvanceGenerateDataKeyPairWithoutPlaintextRequest) SetKeyId(v string) *AdvanceGenerateDataKeyPairWithoutPlaintextRequest {
+	s.KeyId = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairWithoutPlaintextRequest) SetKeyPairSpec(v string) *AdvanceGenerateDataKeyPairWithoutPlaintextRequest {
+	s.KeyPairSpec = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairWithoutPlaintextRequest) SetKeyFormat(v string) *AdvanceGenerateDataKeyPairWithoutPlaintextRequest {
+	s.KeyFormat = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairWithoutPlaintextRequest) SetAad(v []byte) *AdvanceGenerateDataKeyPairWithoutPlaintextRequest {
+	s.Aad = v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairWithoutPlaintextRequest) SetHeaders(v map[string]*string) *AdvanceGenerateDataKeyPairWithoutPlaintextRequest {
+	s.Headers = v
+	return s
+}
+
+type AdvanceGenerateDataKeyPairWithoutPlaintextResponse struct {
+	// 密钥的全局唯一标识符该参数也可以被指定为密钥别名
+	KeyId *string `json:"KeyId,omitempty" xml:"KeyId,omitempty"`
+	// 加密数据时使用的初始向量
+	Iv []byte `json:"Iv,omitempty" xml:"Iv,omitempty"`
+	// 指定生成的数据密钥对类型
+	KeyPairSpec *string `json:"KeyPairSpec,omitempty" xml:"KeyPairSpec,omitempty"`
+	// 私钥密文
+	PrivateKeyCiphertextBlob []byte `json:"PrivateKeyCiphertextBlob,omitempty" xml:"PrivateKeyCiphertextBlob,omitempty"`
+	// 公钥
+	PublicKey []byte `json:"PublicKey,omitempty" xml:"PublicKey,omitempty"`
+	// 请求ID
+	RequestId *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 加密算法
+	Algorithm *string `json:"Algorithm,omitempty" xml:"Algorithm,omitempty"`
+	// 密钥版本唯一标识符
+	KeyVersionId *string `json:"KeyVersionId,omitempty" xml:"KeyVersionId,omitempty"`
+	// 响应头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+}
+
+func (s AdvanceGenerateDataKeyPairWithoutPlaintextResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdvanceGenerateDataKeyPairWithoutPlaintextResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) SetKeyId(v string) *AdvanceGenerateDataKeyPairWithoutPlaintextResponse {
+	s.KeyId = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) SetIv(v []byte) *AdvanceGenerateDataKeyPairWithoutPlaintextResponse {
+	s.Iv = v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) SetKeyPairSpec(v string) *AdvanceGenerateDataKeyPairWithoutPlaintextResponse {
+	s.KeyPairSpec = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) SetPrivateKeyCiphertextBlob(v []byte) *AdvanceGenerateDataKeyPairWithoutPlaintextResponse {
+	s.PrivateKeyCiphertextBlob = v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) SetPublicKey(v []byte) *AdvanceGenerateDataKeyPairWithoutPlaintextResponse {
+	s.PublicKey = v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) SetRequestId(v string) *AdvanceGenerateDataKeyPairWithoutPlaintextResponse {
+	s.RequestId = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) SetAlgorithm(v string) *AdvanceGenerateDataKeyPairWithoutPlaintextResponse {
+	s.Algorithm = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) SetKeyVersionId(v string) *AdvanceGenerateDataKeyPairWithoutPlaintextResponse {
+	s.KeyVersionId = &v
+	return s
+}
+
+func (s *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) SetHeaders(v map[string]*string) *AdvanceGenerateDataKeyPairWithoutPlaintextResponse {
+	s.Headers = v
+	return s
+}
+
 type Client struct {
 	dedicatedkmsopenapi.Client
 }
@@ -1932,6 +2426,282 @@ func (client *Client) AdvanceGenerateDataKeyWithOptions(request *AdvanceGenerate
 		"Algorithm":      respMap["Algorithm"],
 		"KeyVersionId":   respMap["KeyVersionId"],
 		"headers":        responseEntity["responseHeaders"],
+	}, &_result)
+	return _result, _err
+}
+
+/**
+ * 调用GenerateDataKeyPair接口生成密钥对
+ * @param request
+ * @return GenerateDataKeyPairResponse
+ */
+func (client *Client) GenerateDataKeyPair(request *GenerateDataKeyPairRequest) (_result *GenerateDataKeyPairResponse, _err error) {
+	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
+	_result = &GenerateDataKeyPairResponse{}
+	_body, _err := client.GenerateDataKeyPairWithOptions(request, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+/**
+ * 带运行参数调用GenerateDataKeyPairWithOptions接口生成密钥对
+ * @param request
+ * @param runtime
+ * @return GenerateDataKeyPairResponse
+ */
+func (client *Client) GenerateDataKeyPairWithOptions(request *GenerateDataKeyPairRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *GenerateDataKeyPairResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedGenerateDataKeyPairRequest(reqBody)
+	if _err != nil {
+		return _result, _err
+	}
+
+	doRequestTmp, err := client.DoRequest(tea.String("GenerateDataKeyPair"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
+	if _err != nil {
+		return _result, _err
+	}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseGenerateDataKeyPairResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
+	_result = &GenerateDataKeyPairResponse{}
+	_err = tea.Convert(map[string]interface{}{
+		"KeyId":                    respMap["KeyId"],
+		"Iv":                       respMap["Iv"],
+		"KeyPairSpec":              respMap["KeyPairSpec"],
+		"PrivateKeyPlaintext":      respMap["PrivateKeyPlaintext"],
+		"PrivateKeyCiphertextBlob": respMap["PrivateKeyCiphertextBlob"],
+		"PublicKey":                respMap["PublicKey"],
+		"RequestId":                respMap["RequestId"],
+		"Algorithm":                respMap["Algorithm"],
+		"headers":                  responseEntity["responseHeaders"],
+	}, &_result)
+	return _result, _err
+}
+
+/**
+ * 调用GenerateDataKeyPairWithoutPlaintext接口生成无明文密钥对
+ * @param request
+ * @return GenerateDataKeyPairWithoutPlaintextResponse
+ */
+func (client *Client) GenerateDataKeyPairWithoutPlaintext(request *GenerateDataKeyPairWithoutPlaintextRequest) (_result *GenerateDataKeyPairWithoutPlaintextResponse, _err error) {
+	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
+	_result = &GenerateDataKeyPairWithoutPlaintextResponse{}
+	_body, _err := client.GenerateDataKeyPairWithoutPlaintextWithOptions(request, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+/**
+ * 带运行参数调用AdvanceGenerateDataKeyPair接口生成无明文密钥对
+ * @param request
+ * @param runtime
+ * @return GenerateDataKeyPairWithoutPlaintextResponse
+ */
+func (client *Client) GenerateDataKeyPairWithoutPlaintextWithOptions(request *GenerateDataKeyPairWithoutPlaintextRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *GenerateDataKeyPairWithoutPlaintextResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedGenerateDataKeyPairWithoutPlaintextRequest(reqBody)
+	if _err != nil {
+		return _result, _err
+	}
+
+	doRequestTmp, err := client.DoRequest(tea.String("GenerateDataKeyPairWithoutPlaintext"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
+	if _err != nil {
+		return _result, _err
+	}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseGenerateDataKeyPairWithoutPlaintextResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
+	_result = &GenerateDataKeyPairWithoutPlaintextResponse{}
+	_err = tea.Convert(map[string]interface{}{
+		"KeyId":                    respMap["KeyId"],
+		"Iv":                       respMap["Iv"],
+		"KeyPairSpec":              respMap["KeyPairSpec"],
+		"PrivateKeyCiphertextBlob": respMap["PrivateKeyCiphertextBlob"],
+		"PublicKey":                respMap["PublicKey"],
+		"RequestId":                respMap["RequestId"],
+		"Algorithm":                respMap["Algorithm"],
+		"headers":                  responseEntity["responseHeaders"],
+	}, &_result)
+	return _result, _err
+}
+
+/**
+ * 调用AdvanceGenerateDataKeyPair接口高级生成密钥对
+ * @param request
+ * @return AdvanceGenerateDataKeyPairResponse
+ */
+func (client *Client) AdvanceGenerateDataKeyPair(request *AdvanceGenerateDataKeyPairRequest) (_result *AdvanceGenerateDataKeyPairResponse, _err error) {
+	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
+	_result = &AdvanceGenerateDataKeyPairResponse{}
+	_body, _err := client.AdvanceGenerateDataKeyPairWithOptions(request, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+/**
+ * 带运行参数调用AdvanceGenerateDataKeyPairWithOptions接口高级生成密钥对
+ * @param request
+ * @param runtime
+ * @return AdvanceGenerateDataKeyPairResponse
+ */
+func (client *Client) AdvanceGenerateDataKeyPairWithOptions(request *AdvanceGenerateDataKeyPairRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *AdvanceGenerateDataKeyPairResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedAdvanceGenerateDataKeyPairRequest(reqBody)
+	if _err != nil {
+		return _result, _err
+	}
+
+	doRequestTmp, err := client.DoRequest(tea.String("AdvanceGenerateDataKeyPair"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
+	if _err != nil {
+		return _result, _err
+	}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseAdvanceGenerateDataKeyPairResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
+	_result = &AdvanceGenerateDataKeyPairResponse{}
+	_err = tea.Convert(map[string]interface{}{
+		"KeyId":                    respMap["KeyId"],
+		"Iv":                       respMap["Iv"],
+		"KeyPairSpec":              respMap["KeyPairSpec"],
+		"PrivateKeyPlaintext":      respMap["PrivateKeyPlaintext"],
+		"PrivateKeyCiphertextBlob": respMap["PrivateKeyCiphertextBlob"],
+		"PublicKey":                respMap["PublicKey"],
+		"RequestId":                respMap["RequestId"],
+		"Algorithm":                respMap["Algorithm"],
+		"KeyVersionId":             respMap["KeyVersionId"],
+		"headers":                  responseEntity["responseHeaders"],
+	}, &_result)
+	return _result, _err
+}
+
+/**
+ * 调用AdvanceGenerateDataKeyPairWithoutPlaintext接口高级生成无明文密钥对
+ * @param request
+ * @return AdvanceGenerateDataKeyPairWithoutPlaintextResponse
+ */
+func (client *Client) AdvanceGenerateDataKeyPairWithoutPlaintext(request *AdvanceGenerateDataKeyPairWithoutPlaintextRequest) (_result *AdvanceGenerateDataKeyPairWithoutPlaintextResponse, _err error) {
+	runtime := &dedicatedkmsopenapiutil.RuntimeOptions{}
+	_result = &AdvanceGenerateDataKeyPairWithoutPlaintextResponse{}
+	_body, _err := client.AdvanceGenerateDataKeyPairWithoutPlaintextWithOptions(request, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+/**
+ * 带运行参数调用AdvanceGenerateDataKeyPairWithoutPlaintextWithOptions接口高级生成无明文密钥对
+ * @param request
+ * @param runtime
+ * @return AdvanceGenerateDataKeyPairWithoutPlaintextResponse
+ */
+func (client *Client) AdvanceGenerateDataKeyPairWithoutPlaintextWithOptions(request *AdvanceGenerateDataKeyPairWithoutPlaintextRequest, runtime *dedicatedkmsopenapiutil.RuntimeOptions) (_result *AdvanceGenerateDataKeyPairWithoutPlaintextResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	reqBody := dedicatedkmsopenapiutil.ConvertToMap(request)
+	reqBodyBytes, _err := dedicatedkmsopenapiutil.GetSerializedAdvanceGenerateDataKeyPairWithoutPlaintextRequest(reqBody)
+	if _err != nil {
+		return _result, _err
+	}
+
+	doRequestTmp, err := client.DoRequest(tea.String("AdvanceGenerateDataKeyPairWithoutPlaintext"), tea.String("dkms-gcs-0.2"), tea.String("https"), tea.String("POST"), tea.String("RSA_PKCS1_SHA_256"), reqBodyBytes, runtime, request.Headers)
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	responseEntity, _err := util.AssertAsMap(doRequestTmp)
+	if _err != nil {
+		return _result, _err
+	}
+
+	base64DecodeTmp, err := util.AssertAsString(responseEntity["bodyBytes"])
+	if err != nil {
+		_err = err
+		return _result, _err
+	}
+	bodyBytes := encodeutil.Base64Decode(base64DecodeTmp)
+	respMap, _err := dedicatedkmsopenapiutil.ParseAdvanceGenerateDataKeyPairWithoutPlaintextResponse(bodyBytes)
+	if _err != nil {
+		return _result, _err
+	}
+
+	_result = &AdvanceGenerateDataKeyPairWithoutPlaintextResponse{}
+	_err = tea.Convert(map[string]interface{}{
+		"KeyId":                    respMap["KeyId"],
+		"Iv":                       respMap["Iv"],
+		"KeyPairSpec":              respMap["KeyPairSpec"],
+		"PrivateKeyCiphertextBlob": respMap["PrivateKeyCiphertextBlob"],
+		"PublicKey":                respMap["PublicKey"],
+		"RequestId":                respMap["RequestId"],
+		"Algorithm":                respMap["Algorithm"],
+		"KeyVersionId":             respMap["KeyVersionId"],
+		"headers":                  responseEntity["responseHeaders"],
 	}, &_result)
 	return _result, _err
 }
