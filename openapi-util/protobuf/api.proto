@@ -5,18 +5,6 @@ option java_outer_classname = "ApiModels";
 package api;
 option go_package = "./protobuf/api";
 
-message KmsEncryptRequest {
-     string KeyId = 1;
-     bytes Plaintext = 2;
-     bytes Aad = 3;
-}
-
-message KmsEncryptResponse {
-     string KeyId = 1;
-     bytes CiphertextBlob = 2;
-     string RequestId = 3;
-}
-
 message EncryptRequest {
      string KeyId = 1;
      bytes Plaintext = 2;
@@ -33,17 +21,6 @@ message EncryptResponse {
      string RequestId = 4;
      string Algorithm = 5;
      string PaddingMode = 6;
-}
-
-message KmsDecryptRequest {
-     bytes CiphertextBlob = 1;
-     bytes Aad = 2;
-}
-
-message KmsDecryptResponse {
-     string KeyId = 1;
-     bytes Plaintext = 2;
-     string RequestId = 3;
 }
 
 message DecryptRequest {
@@ -114,16 +91,6 @@ message GenerateRandomRequest {
 message GenerateRandomResponse {
      bytes Random = 1;
      string RequestId = 2;
-}
-
-message HashRequest {
-      bytes Message = 1;
-   string Algorithm = 2;
-}
-
-message HashResponse {
-     bytes  Digest = 1;
-     string RequestId = 3;
 }
 
 message GenerateDataKeyRequest {
@@ -236,4 +203,79 @@ message AdvanceGenerateDataKeyResponse {
      string RequestId = 5;
      string Algorithm = 6;
      string KeyVersionId = 7;
+}
+
+
+message GenerateDataKeyPairRequest {
+     string KeyId = 1;
+     string Algorithm = 2;
+     string KeyPairSpec = 3;
+     string KeyFormat = 4;
+     bytes Aad = 5;
+}
+
+message GenerateDataKeyPairResponse {
+     string KeyId = 1;
+     bytes Iv = 2;
+     string KeyPairSpec = 3;
+     bytes PrivateKeyPlaintext = 4;
+     bytes PrivateKeyCiphertextBlob = 5;
+     bytes PublicKey = 6;
+     string RequestId = 7;
+     string Algorithm = 8;
+}
+
+message GenerateDataKeyPairWithoutPlaintextRequest {
+    string KeyId = 1;
+    string Algorithm = 2;
+    string KeyPairSpec = 3;
+    string KeyFormat = 4;
+    bytes Aad = 5;
+}
+
+message GenerateDataKeyPairWithoutPlaintextResponse {
+     string KeyId = 1;
+     bytes Iv = 2;
+     string KeyPairSpec = 3;
+     bytes PrivateKeyCiphertextBlob = 4;
+     bytes PublicKey = 5;
+     string RequestId = 6;
+     string Algorithm = 7;
+}
+
+message AdvanceGenerateDataKeyPairRequest {
+     string KeyId = 1;
+     string KeyPairSpec = 2;
+     string KeyFormat = 3;
+     bytes Aad = 4;
+}
+
+message AdvanceGenerateDataKeyPairResponse {
+     string KeyId = 1;
+     bytes Iv = 2;
+     string KeyPairSpec = 3;
+     bytes PrivateKeyPlaintext = 4;
+     bytes PrivateKeyCiphertextBlob = 5;
+     bytes PublicKey = 6;
+     string RequestId = 7;
+     string Algorithm = 8;
+     string KeyVersionId = 9;
+}
+
+message AdvanceGenerateDataKeyPairWithoutPlaintextRequest {
+    string KeyId = 1;
+    string KeyPairSpec = 2;
+    string KeyFormat = 3;
+    bytes Aad = 4;
+}
+
+message AdvanceGenerateDataKeyPairWithoutPlaintextResponse {
+     string KeyId = 1;
+     bytes Iv = 2;
+     string KeyPairSpec = 3;
+     bytes PrivateKeyCiphertextBlob = 4;
+     bytes PublicKey = 5;
+     string RequestId = 6;
+     string Algorithm = 7;
+     string KeyVersionId = 8;
 }

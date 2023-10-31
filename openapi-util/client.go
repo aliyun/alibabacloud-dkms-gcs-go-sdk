@@ -780,3 +780,161 @@ func ParseGenerateRandomResponse(resBody []byte) (_result map[string]interface{}
 	_result["RequestId"] = tea.String(response.RequestId)
 	return
 }
+
+func GetSerializedGenerateDataKeyPairRequest(reqBody map[string]interface{}) (_result []byte, _err error) {
+
+	request := &api.GenerateDataKeyPairRequest{}
+	if v, ok := reqBody["KeyId"]; ok {
+		request.KeyId = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["Algorithm"]; ok {
+		request.Algorithm = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["KeyPairSpec"]; ok {
+		request.KeyPairSpec = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["KeyFormat"]; ok {
+		request.KeyFormat = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["Aad"]; ok {
+		request.Aad = v.([]byte)
+	}
+	_result, _err = proto.Marshal(request)
+	return
+}
+
+func ParseGenerateDataKeyPairResponse(resBody []byte) (_result map[string]interface{}, _err error) {
+
+	_result = make(map[string]interface{})
+	response := &api.GenerateDataKeyPairResponse{}
+	_err = proto.Unmarshal(resBody, response)
+	if _err != nil {
+		return
+	}
+	_result["KeyId"] = tea.String(response.KeyId)
+	_result["Iv"] = response.Iv
+	_result["KeyPairSpec"] = tea.String(response.KeyPairSpec)
+	_result["PrivateKeyPlaintext"] = response.PrivateKeyPlaintext
+	_result["PrivateKeyCiphertextBlob"] = response.PrivateKeyCiphertextBlob
+	_result["PublicKey"] = response.PublicKey
+	_result["RequestId"] = tea.String(response.RequestId)
+	_result["Algorithm"] = tea.String(response.Algorithm)
+	return
+}
+
+func GetSerializedGenerateDataKeyPairWithoutPlaintextRequest(reqBody map[string]interface{}) (_result []byte, _err error) {
+
+	request := &api.GenerateDataKeyPairWithoutPlaintextRequest{}
+	if v, ok := reqBody["KeyId"]; ok {
+		request.KeyId = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["Algorithm"]; ok {
+		request.Algorithm = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["KeyPairSpec"]; ok {
+		request.KeyPairSpec = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["KeyFormat"]; ok {
+		request.KeyFormat = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["Aad"]; ok {
+		request.Aad = v.([]byte)
+	}
+	_result, _err = proto.Marshal(request)
+	return
+}
+
+func ParseGenerateDataKeyPairWithoutPlaintextResponse(resBody []byte) (_result map[string]interface{}, _err error) {
+
+	_result = make(map[string]interface{})
+	response := &api.GenerateDataKeyPairWithoutPlaintextResponse{}
+	_err = proto.Unmarshal(resBody, response)
+	if _err != nil {
+		return
+	}
+	_result["KeyId"] = tea.String(response.KeyId)
+	_result["Iv"] = response.Iv
+	_result["KeyPairSpec"] = tea.String(response.KeyPairSpec)
+	_result["PrivateKeyCiphertextBlob"] = response.PrivateKeyCiphertextBlob
+	_result["PublicKey"] = response.PublicKey
+	_result["RequestId"] = tea.String(response.RequestId)
+	_result["Algorithm"] = tea.String(response.Algorithm)
+	return
+}
+
+func GetSerializedAdvanceGenerateDataKeyPairRequest(reqBody map[string]interface{}) (_result []byte, _err error) {
+
+	request := &api.AdvanceGenerateDataKeyPairRequest{}
+	if v, ok := reqBody["KeyId"]; ok {
+		request.KeyId = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["KeyPairSpec"]; ok {
+		request.KeyPairSpec = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["KeyFormat"]; ok {
+		request.KeyFormat = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["Aad"]; ok {
+		request.Aad = v.([]byte)
+	}
+	_result, _err = proto.Marshal(request)
+	return
+}
+
+func ParseAdvanceGenerateDataKeyPairResponse(resBody []byte) (_result map[string]interface{}, _err error) {
+
+	_result = make(map[string]interface{})
+	response := &api.AdvanceGenerateDataKeyPairResponse{}
+	_err = proto.Unmarshal(resBody, response)
+	if _err != nil {
+		return
+	}
+	_result["KeyId"] = tea.String(response.KeyId)
+	_result["Iv"] = response.Iv
+	_result["KeyPairSpec"] = tea.String(response.KeyPairSpec)
+	_result["PrivateKeyPlaintext"] = response.PrivateKeyPlaintext
+	_result["PrivateKeyCiphertextBlob"] = response.PrivateKeyCiphertextBlob
+	_result["PublicKey"] = response.PublicKey
+	_result["RequestId"] = tea.String(response.RequestId)
+	_result["Algorithm"] = tea.String(response.Algorithm)
+	_result["KeyVersionId"] = tea.String(response.KeyVersionId)
+	return
+}
+
+func GetSerializedAdvanceGenerateDataKeyPairWithoutPlaintextRequest(reqBody map[string]interface{}) (_result []byte, _err error) {
+
+	request := &api.AdvanceGenerateDataKeyPairWithoutPlaintextRequest{}
+	if v, ok := reqBody["KeyId"]; ok {
+		request.KeyId = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["KeyPairSpec"]; ok {
+		request.KeyPairSpec = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["KeyFormat"]; ok {
+		request.KeyFormat = tea.StringValue(v.(*string))
+	}
+	if v, ok := reqBody["Aad"]; ok {
+		request.Aad = v.([]byte)
+	}
+	_result, _err = proto.Marshal(request)
+	return
+}
+
+func ParseAdvanceGenerateDataKeyPairWithoutPlaintextResponse(resBody []byte) (_result map[string]interface{}, _err error) {
+
+	_result = make(map[string]interface{})
+	response := &api.AdvanceGenerateDataKeyPairWithoutPlaintextResponse{}
+	_err = proto.Unmarshal(resBody, response)
+	if _err != nil {
+		return
+	}
+	_result["KeyId"] = tea.String(response.KeyId)
+	_result["Iv"] = response.Iv
+	_result["KeyPairSpec"] = tea.String(response.KeyPairSpec)
+	_result["PrivateKeyCiphertextBlob"] = response.PrivateKeyCiphertextBlob
+	_result["PublicKey"] = response.PublicKey
+	_result["RequestId"] = tea.String(response.RequestId)
+	_result["Algorithm"] = tea.String(response.Algorithm)
+	_result["KeyVersionId"] = tea.String(response.KeyVersionId)
+	return
+}

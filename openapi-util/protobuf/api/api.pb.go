@@ -1973,6 +1973,718 @@ func (x *AdvanceGenerateDataKeyResponse) GetKeyVersionId() string {
 	return ""
 }
 
+type GenerateDataKeyPairRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	KeyId       string `protobuf:"bytes,1,opt,name=KeyId,proto3" json:"KeyId,omitempty"`
+	Algorithm   string `protobuf:"bytes,2,opt,name=Algorithm,proto3" json:"Algorithm,omitempty"`
+	KeyPairSpec string `protobuf:"bytes,3,opt,name=KeyPairSpec,proto3" json:"KeyPairSpec,omitempty"`
+	KeyFormat   string `protobuf:"bytes,4,opt,name=KeyFormat,proto3" json:"KeyFormat,omitempty"`
+	Aad         []byte `protobuf:"bytes,5,opt,name=Aad,proto3" json:"Aad,omitempty"`
+}
+
+func (x *GenerateDataKeyPairRequest) Reset() {
+	*x = GenerateDataKeyPairRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[25]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GenerateDataKeyPairRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GenerateDataKeyPairRequest) ProtoMessage() {}
+
+func (x *GenerateDataKeyPairRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[25]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GenerateDataKeyPairRequest.ProtoReflect.Descriptor instead.
+func (*GenerateDataKeyPairRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GenerateDataKeyPairRequest) GetKeyId() string {
+	if x != nil {
+		return x.KeyId
+	}
+	return ""
+}
+
+func (x *GenerateDataKeyPairRequest) GetAlgorithm() string {
+	if x != nil {
+		return x.Algorithm
+	}
+	return ""
+}
+
+func (x *GenerateDataKeyPairRequest) GetKeyPairSpec() string {
+	if x != nil {
+		return x.KeyPairSpec
+	}
+	return ""
+}
+
+func (x *GenerateDataKeyPairRequest) GetKeyFormat() string {
+	if x != nil {
+		return x.KeyFormat
+	}
+	return ""
+}
+
+func (x *GenerateDataKeyPairRequest) GetAad() []byte {
+	if x != nil {
+		return x.Aad
+	}
+	return nil
+}
+
+type GenerateDataKeyPairResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	KeyId                    string `protobuf:"bytes,1,opt,name=KeyId,proto3" json:"KeyId,omitempty"`
+	Iv                       []byte `protobuf:"bytes,2,opt,name=Iv,proto3" json:"Iv,omitempty"`
+	KeyPairSpec              string `protobuf:"bytes,3,opt,name=KeyPairSpec,proto3" json:"KeyPairSpec,omitempty"`
+	PrivateKeyPlaintext      []byte `protobuf:"bytes,4,opt,name=PrivateKeyPlaintext,proto3" json:"PrivateKeyPlaintext,omitempty"`
+	PrivateKeyCiphertextBlob []byte `protobuf:"bytes,5,opt,name=PrivateKeyCiphertextBlob,proto3" json:"PrivateKeyCiphertextBlob,omitempty"`
+	PublicKey                []byte `protobuf:"bytes,6,opt,name=PublicKey,proto3" json:"PublicKey,omitempty"`
+	RequestId                string `protobuf:"bytes,7,opt,name=RequestId,proto3" json:"RequestId,omitempty"`
+	Algorithm                string `protobuf:"bytes,8,opt,name=Algorithm,proto3" json:"Algorithm,omitempty"`
+}
+
+func (x *GenerateDataKeyPairResponse) Reset() {
+	*x = GenerateDataKeyPairResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[26]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GenerateDataKeyPairResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GenerateDataKeyPairResponse) ProtoMessage() {}
+
+func (x *GenerateDataKeyPairResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[26]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GenerateDataKeyPairResponse.ProtoReflect.Descriptor instead.
+func (*GenerateDataKeyPairResponse) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *GenerateDataKeyPairResponse) GetKeyId() string {
+	if x != nil {
+		return x.KeyId
+	}
+	return ""
+}
+
+func (x *GenerateDataKeyPairResponse) GetIv() []byte {
+	if x != nil {
+		return x.Iv
+	}
+	return nil
+}
+
+func (x *GenerateDataKeyPairResponse) GetKeyPairSpec() string {
+	if x != nil {
+		return x.KeyPairSpec
+	}
+	return ""
+}
+
+func (x *GenerateDataKeyPairResponse) GetPrivateKeyPlaintext() []byte {
+	if x != nil {
+		return x.PrivateKeyPlaintext
+	}
+	return nil
+}
+
+func (x *GenerateDataKeyPairResponse) GetPrivateKeyCiphertextBlob() []byte {
+	if x != nil {
+		return x.PrivateKeyCiphertextBlob
+	}
+	return nil
+}
+
+func (x *GenerateDataKeyPairResponse) GetPublicKey() []byte {
+	if x != nil {
+		return x.PublicKey
+	}
+	return nil
+}
+
+func (x *GenerateDataKeyPairResponse) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+func (x *GenerateDataKeyPairResponse) GetAlgorithm() string {
+	if x != nil {
+		return x.Algorithm
+	}
+	return ""
+}
+
+type GenerateDataKeyPairWithoutPlaintextRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	KeyId       string `protobuf:"bytes,1,opt,name=KeyId,proto3" json:"KeyId,omitempty"`
+	Algorithm   string `protobuf:"bytes,2,opt,name=Algorithm,proto3" json:"Algorithm,omitempty"`
+	KeyPairSpec string `protobuf:"bytes,3,opt,name=KeyPairSpec,proto3" json:"KeyPairSpec,omitempty"`
+	KeyFormat   string `protobuf:"bytes,4,opt,name=KeyFormat,proto3" json:"KeyFormat,omitempty"`
+	Aad         []byte `protobuf:"bytes,5,opt,name=Aad,proto3" json:"Aad,omitempty"`
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextRequest) Reset() {
+	*x = GenerateDataKeyPairWithoutPlaintextRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[27]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GenerateDataKeyPairWithoutPlaintextRequest) ProtoMessage() {}
+
+func (x *GenerateDataKeyPairWithoutPlaintextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[27]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GenerateDataKeyPairWithoutPlaintextRequest.ProtoReflect.Descriptor instead.
+func (*GenerateDataKeyPairWithoutPlaintextRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextRequest) GetKeyId() string {
+	if x != nil {
+		return x.KeyId
+	}
+	return ""
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextRequest) GetAlgorithm() string {
+	if x != nil {
+		return x.Algorithm
+	}
+	return ""
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextRequest) GetKeyPairSpec() string {
+	if x != nil {
+		return x.KeyPairSpec
+	}
+	return ""
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextRequest) GetKeyFormat() string {
+	if x != nil {
+		return x.KeyFormat
+	}
+	return ""
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextRequest) GetAad() []byte {
+	if x != nil {
+		return x.Aad
+	}
+	return nil
+}
+
+type GenerateDataKeyPairWithoutPlaintextResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	KeyId                    string `protobuf:"bytes,1,opt,name=KeyId,proto3" json:"KeyId,omitempty"`
+	Iv                       []byte `protobuf:"bytes,2,opt,name=Iv,proto3" json:"Iv,omitempty"`
+	KeyPairSpec              string `protobuf:"bytes,3,opt,name=KeyPairSpec,proto3" json:"KeyPairSpec,omitempty"`
+	PrivateKeyCiphertextBlob []byte `protobuf:"bytes,4,opt,name=PrivateKeyCiphertextBlob,proto3" json:"PrivateKeyCiphertextBlob,omitempty"`
+	PublicKey                []byte `protobuf:"bytes,5,opt,name=PublicKey,proto3" json:"PublicKey,omitempty"`
+	RequestId                string `protobuf:"bytes,6,opt,name=RequestId,proto3" json:"RequestId,omitempty"`
+	Algorithm                string `protobuf:"bytes,7,opt,name=Algorithm,proto3" json:"Algorithm,omitempty"`
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextResponse) Reset() {
+	*x = GenerateDataKeyPairWithoutPlaintextResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[28]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GenerateDataKeyPairWithoutPlaintextResponse) ProtoMessage() {}
+
+func (x *GenerateDataKeyPairWithoutPlaintextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[28]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GenerateDataKeyPairWithoutPlaintextResponse.ProtoReflect.Descriptor instead.
+func (*GenerateDataKeyPairWithoutPlaintextResponse) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextResponse) GetKeyId() string {
+	if x != nil {
+		return x.KeyId
+	}
+	return ""
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextResponse) GetIv() []byte {
+	if x != nil {
+		return x.Iv
+	}
+	return nil
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextResponse) GetKeyPairSpec() string {
+	if x != nil {
+		return x.KeyPairSpec
+	}
+	return ""
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextResponse) GetPrivateKeyCiphertextBlob() []byte {
+	if x != nil {
+		return x.PrivateKeyCiphertextBlob
+	}
+	return nil
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextResponse) GetPublicKey() []byte {
+	if x != nil {
+		return x.PublicKey
+	}
+	return nil
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextResponse) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+func (x *GenerateDataKeyPairWithoutPlaintextResponse) GetAlgorithm() string {
+	if x != nil {
+		return x.Algorithm
+	}
+	return ""
+}
+
+type AdvanceGenerateDataKeyPairRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	KeyId       string `protobuf:"bytes,1,opt,name=KeyId,proto3" json:"KeyId,omitempty"`
+	KeyPairSpec string `protobuf:"bytes,2,opt,name=KeyPairSpec,proto3" json:"KeyPairSpec,omitempty"`
+	KeyFormat   string `protobuf:"bytes,3,opt,name=KeyFormat,proto3" json:"KeyFormat,omitempty"`
+	Aad         []byte `protobuf:"bytes,4,opt,name=Aad,proto3" json:"Aad,omitempty"`
+}
+
+func (x *AdvanceGenerateDataKeyPairRequest) Reset() {
+	*x = AdvanceGenerateDataKeyPairRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[29]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AdvanceGenerateDataKeyPairRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdvanceGenerateDataKeyPairRequest) ProtoMessage() {}
+
+func (x *AdvanceGenerateDataKeyPairRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[29]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdvanceGenerateDataKeyPairRequest.ProtoReflect.Descriptor instead.
+func (*AdvanceGenerateDataKeyPairRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *AdvanceGenerateDataKeyPairRequest) GetKeyId() string {
+	if x != nil {
+		return x.KeyId
+	}
+	return ""
+}
+
+func (x *AdvanceGenerateDataKeyPairRequest) GetKeyPairSpec() string {
+	if x != nil {
+		return x.KeyPairSpec
+	}
+	return ""
+}
+
+func (x *AdvanceGenerateDataKeyPairRequest) GetKeyFormat() string {
+	if x != nil {
+		return x.KeyFormat
+	}
+	return ""
+}
+
+func (x *AdvanceGenerateDataKeyPairRequest) GetAad() []byte {
+	if x != nil {
+		return x.Aad
+	}
+	return nil
+}
+
+type AdvanceGenerateDataKeyPairResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	KeyId                    string `protobuf:"bytes,1,opt,name=KeyId,proto3" json:"KeyId,omitempty"`
+	Iv                       []byte `protobuf:"bytes,2,opt,name=Iv,proto3" json:"Iv,omitempty"`
+	KeyPairSpec              string `protobuf:"bytes,3,opt,name=KeyPairSpec,proto3" json:"KeyPairSpec,omitempty"`
+	PrivateKeyPlaintext      []byte `protobuf:"bytes,4,opt,name=PrivateKeyPlaintext,proto3" json:"PrivateKeyPlaintext,omitempty"`
+	PrivateKeyCiphertextBlob []byte `protobuf:"bytes,5,opt,name=PrivateKeyCiphertextBlob,proto3" json:"PrivateKeyCiphertextBlob,omitempty"`
+	PublicKey                []byte `protobuf:"bytes,6,opt,name=PublicKey,proto3" json:"PublicKey,omitempty"`
+	RequestId                string `protobuf:"bytes,7,opt,name=RequestId,proto3" json:"RequestId,omitempty"`
+	Algorithm                string `protobuf:"bytes,8,opt,name=Algorithm,proto3" json:"Algorithm,omitempty"`
+	KeyVersionId             string `protobuf:"bytes,9,opt,name=KeyVersionId,proto3" json:"KeyVersionId,omitempty"`
+}
+
+func (x *AdvanceGenerateDataKeyPairResponse) Reset() {
+	*x = AdvanceGenerateDataKeyPairResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[30]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AdvanceGenerateDataKeyPairResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdvanceGenerateDataKeyPairResponse) ProtoMessage() {}
+
+func (x *AdvanceGenerateDataKeyPairResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[30]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdvanceGenerateDataKeyPairResponse.ProtoReflect.Descriptor instead.
+func (*AdvanceGenerateDataKeyPairResponse) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *AdvanceGenerateDataKeyPairResponse) GetKeyId() string {
+	if x != nil {
+		return x.KeyId
+	}
+	return ""
+}
+
+func (x *AdvanceGenerateDataKeyPairResponse) GetIv() []byte {
+	if x != nil {
+		return x.Iv
+	}
+	return nil
+}
+
+func (x *AdvanceGenerateDataKeyPairResponse) GetKeyPairSpec() string {
+	if x != nil {
+		return x.KeyPairSpec
+	}
+	return ""
+}
+
+func (x *AdvanceGenerateDataKeyPairResponse) GetPrivateKeyPlaintext() []byte {
+	if x != nil {
+		return x.PrivateKeyPlaintext
+	}
+	return nil
+}
+
+func (x *AdvanceGenerateDataKeyPairResponse) GetPrivateKeyCiphertextBlob() []byte {
+	if x != nil {
+		return x.PrivateKeyCiphertextBlob
+	}
+	return nil
+}
+
+func (x *AdvanceGenerateDataKeyPairResponse) GetPublicKey() []byte {
+	if x != nil {
+		return x.PublicKey
+	}
+	return nil
+}
+
+func (x *AdvanceGenerateDataKeyPairResponse) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+func (x *AdvanceGenerateDataKeyPairResponse) GetAlgorithm() string {
+	if x != nil {
+		return x.Algorithm
+	}
+	return ""
+}
+
+func (x *AdvanceGenerateDataKeyPairResponse) GetKeyVersionId() string {
+	if x != nil {
+		return x.KeyVersionId
+	}
+	return ""
+}
+
+type AdvanceGenerateDataKeyPairWithoutPlaintextRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	KeyId       string `protobuf:"bytes,1,opt,name=KeyId,proto3" json:"KeyId,omitempty"`
+	KeyPairSpec string `protobuf:"bytes,2,opt,name=KeyPairSpec,proto3" json:"KeyPairSpec,omitempty"`
+	KeyFormat   string `protobuf:"bytes,3,opt,name=KeyFormat,proto3" json:"KeyFormat,omitempty"`
+	Aad         []byte `protobuf:"bytes,4,opt,name=Aad,proto3" json:"Aad,omitempty"`
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextRequest) Reset() {
+	*x = AdvanceGenerateDataKeyPairWithoutPlaintextRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[31]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdvanceGenerateDataKeyPairWithoutPlaintextRequest) ProtoMessage() {}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[31]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdvanceGenerateDataKeyPairWithoutPlaintextRequest.ProtoReflect.Descriptor instead.
+func (*AdvanceGenerateDataKeyPairWithoutPlaintextRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextRequest) GetKeyId() string {
+	if x != nil {
+		return x.KeyId
+	}
+	return ""
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextRequest) GetKeyPairSpec() string {
+	if x != nil {
+		return x.KeyPairSpec
+	}
+	return ""
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextRequest) GetKeyFormat() string {
+	if x != nil {
+		return x.KeyFormat
+	}
+	return ""
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextRequest) GetAad() []byte {
+	if x != nil {
+		return x.Aad
+	}
+	return nil
+}
+
+type AdvanceGenerateDataKeyPairWithoutPlaintextResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	KeyId                    string `protobuf:"bytes,1,opt,name=KeyId,proto3" json:"KeyId,omitempty"`
+	Iv                       []byte `protobuf:"bytes,2,opt,name=Iv,proto3" json:"Iv,omitempty"`
+	KeyPairSpec              string `protobuf:"bytes,3,opt,name=KeyPairSpec,proto3" json:"KeyPairSpec,omitempty"`
+	PrivateKeyCiphertextBlob []byte `protobuf:"bytes,4,opt,name=PrivateKeyCiphertextBlob,proto3" json:"PrivateKeyCiphertextBlob,omitempty"`
+	PublicKey                []byte `protobuf:"bytes,5,opt,name=PublicKey,proto3" json:"PublicKey,omitempty"`
+	RequestId                string `protobuf:"bytes,6,opt,name=RequestId,proto3" json:"RequestId,omitempty"`
+	Algorithm                string `protobuf:"bytes,7,opt,name=Algorithm,proto3" json:"Algorithm,omitempty"`
+	KeyVersionId             string `protobuf:"bytes,8,opt,name=KeyVersionId,proto3" json:"KeyVersionId,omitempty"`
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) Reset() {
+	*x = AdvanceGenerateDataKeyPairWithoutPlaintextResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[32]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdvanceGenerateDataKeyPairWithoutPlaintextResponse) ProtoMessage() {}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[32]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdvanceGenerateDataKeyPairWithoutPlaintextResponse.ProtoReflect.Descriptor instead.
+func (*AdvanceGenerateDataKeyPairWithoutPlaintextResponse) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) GetKeyId() string {
+	if x != nil {
+		return x.KeyId
+	}
+	return ""
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) GetIv() []byte {
+	if x != nil {
+		return x.Iv
+	}
+	return nil
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) GetKeyPairSpec() string {
+	if x != nil {
+		return x.KeyPairSpec
+	}
+	return ""
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) GetPrivateKeyCiphertextBlob() []byte {
+	if x != nil {
+		return x.PrivateKeyCiphertextBlob
+	}
+	return nil
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) GetPublicKey() []byte {
+	if x != nil {
+		return x.PublicKey
+	}
+	return nil
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) GetAlgorithm() string {
+	if x != nil {
+		return x.Algorithm
+	}
+	return ""
+}
+
+func (x *AdvanceGenerateDataKeyPairWithoutPlaintextResponse) GetKeyVersionId() string {
+	if x != nil {
+		return x.KeyVersionId
+	}
+	return ""
+}
+
 var File_api_proto protoreflect.FileDescriptor
 
 var file_api_proto_rawDesc = []byte{
@@ -2234,12 +2946,129 @@ var file_api_proto_rawDesc = []byte{
 	0x28, 0x09, 0x52, 0x09, 0x41, 0x6c, 0x67, 0x6f, 0x72, 0x69, 0x74, 0x68, 0x6d, 0x12, 0x22, 0x0a,
 	0x0c, 0x4b, 0x65, 0x79, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x18, 0x07, 0x20,
 	0x01, 0x28, 0x09, 0x52, 0x0c, 0x4b, 0x65, 0x79, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x49,
-	0x64, 0x42, 0x46, 0x0a, 0x29, 0x63, 0x6f, 0x6d, 0x2e, 0x61, 0x6c, 0x69, 0x79, 0x75, 0x6e, 0x2e,
-	0x64, 0x6b, 0x6d, 0x73, 0x2e, 0x67, 0x63, 0x73, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x61, 0x70, 0x69,
-	0x2e, 0x75, 0x74, 0x69, 0x6c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x42, 0x09,
-	0x41, 0x70, 0x69, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x5a, 0x0e, 0x2e, 0x2f, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x62, 0x75, 0x66, 0x2f, 0x61, 0x70, 0x69, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x64, 0x22, 0xa2, 0x01, 0x0a, 0x1a, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x44, 0x61,
+	0x74, 0x61, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x14, 0x0a, 0x05, 0x4b, 0x65, 0x79, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x05, 0x4b, 0x65, 0x79, 0x49, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x41, 0x6c, 0x67, 0x6f, 0x72, 0x69,
+	0x74, 0x68, 0x6d, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x41, 0x6c, 0x67, 0x6f, 0x72,
+	0x69, 0x74, 0x68, 0x6d, 0x12, 0x20, 0x0a, 0x0b, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x53,
+	0x70, 0x65, 0x63, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x4b, 0x65, 0x79, 0x50, 0x61,
+	0x69, 0x72, 0x53, 0x70, 0x65, 0x63, 0x12, 0x1c, 0x0a, 0x09, 0x4b, 0x65, 0x79, 0x46, 0x6f, 0x72,
+	0x6d, 0x61, 0x74, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x4b, 0x65, 0x79, 0x46, 0x6f,
+	0x72, 0x6d, 0x61, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x41, 0x61, 0x64, 0x18, 0x05, 0x20, 0x01, 0x28,
+	0x0c, 0x52, 0x03, 0x41, 0x61, 0x64, 0x22, 0xad, 0x02, 0x0a, 0x1b, 0x47, 0x65, 0x6e, 0x65, 0x72,
+	0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x4b, 0x65, 0x79, 0x49, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x4b, 0x65, 0x79, 0x49, 0x64, 0x12, 0x0e, 0x0a, 0x02,
+	0x49, 0x76, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x02, 0x49, 0x76, 0x12, 0x20, 0x0a, 0x0b,
+	0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x53, 0x70, 0x65, 0x63, 0x18, 0x03, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x0b, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x53, 0x70, 0x65, 0x63, 0x12, 0x30,
+	0x0a, 0x13, 0x50, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x4b, 0x65, 0x79, 0x50, 0x6c, 0x61, 0x69,
+	0x6e, 0x74, 0x65, 0x78, 0x74, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x13, 0x50, 0x72, 0x69,
+	0x76, 0x61, 0x74, 0x65, 0x4b, 0x65, 0x79, 0x50, 0x6c, 0x61, 0x69, 0x6e, 0x74, 0x65, 0x78, 0x74,
+	0x12, 0x3a, 0x0a, 0x18, 0x50, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x4b, 0x65, 0x79, 0x43, 0x69,
+	0x70, 0x68, 0x65, 0x72, 0x74, 0x65, 0x78, 0x74, 0x42, 0x6c, 0x6f, 0x62, 0x18, 0x05, 0x20, 0x01,
+	0x28, 0x0c, 0x52, 0x18, 0x50, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x4b, 0x65, 0x79, 0x43, 0x69,
+	0x70, 0x68, 0x65, 0x72, 0x74, 0x65, 0x78, 0x74, 0x42, 0x6c, 0x6f, 0x62, 0x12, 0x1c, 0x0a, 0x09,
+	0x50, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x4b, 0x65, 0x79, 0x18, 0x06, 0x20, 0x01, 0x28, 0x0c, 0x52,
+	0x09, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x4b, 0x65, 0x79, 0x12, 0x1c, 0x0a, 0x09, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x49, 0x64, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x49, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x41, 0x6c, 0x67, 0x6f,
+	0x72, 0x69, 0x74, 0x68, 0x6d, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x41, 0x6c, 0x67,
+	0x6f, 0x72, 0x69, 0x74, 0x68, 0x6d, 0x22, 0xb2, 0x01, 0x0a, 0x2a, 0x47, 0x65, 0x6e, 0x65, 0x72,
+	0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x57, 0x69,
+	0x74, 0x68, 0x6f, 0x75, 0x74, 0x50, 0x6c, 0x61, 0x69, 0x6e, 0x74, 0x65, 0x78, 0x74, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x4b, 0x65, 0x79, 0x49, 0x64, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x4b, 0x65, 0x79, 0x49, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x41,
+	0x6c, 0x67, 0x6f, 0x72, 0x69, 0x74, 0x68, 0x6d, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09,
+	0x41, 0x6c, 0x67, 0x6f, 0x72, 0x69, 0x74, 0x68, 0x6d, 0x12, 0x20, 0x0a, 0x0b, 0x4b, 0x65, 0x79,
+	0x50, 0x61, 0x69, 0x72, 0x53, 0x70, 0x65, 0x63, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b,
+	0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x53, 0x70, 0x65, 0x63, 0x12, 0x1c, 0x0a, 0x09, 0x4b,
+	0x65, 0x79, 0x46, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09,
+	0x4b, 0x65, 0x79, 0x46, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x41, 0x61, 0x64,
+	0x18, 0x05, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x41, 0x61, 0x64, 0x22, 0x8b, 0x02, 0x0a, 0x2b,
+	0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x4b, 0x65, 0x79, 0x50,
+	0x61, 0x69, 0x72, 0x57, 0x69, 0x74, 0x68, 0x6f, 0x75, 0x74, 0x50, 0x6c, 0x61, 0x69, 0x6e, 0x74,
+	0x65, 0x78, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x4b,
+	0x65, 0x79, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x4b, 0x65, 0x79, 0x49,
+	0x64, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x76, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x02, 0x49,
+	0x76, 0x12, 0x20, 0x0a, 0x0b, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x53, 0x70, 0x65, 0x63,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x53,
+	0x70, 0x65, 0x63, 0x12, 0x3a, 0x0a, 0x18, 0x50, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x4b, 0x65,
+	0x79, 0x43, 0x69, 0x70, 0x68, 0x65, 0x72, 0x74, 0x65, 0x78, 0x74, 0x42, 0x6c, 0x6f, 0x62, 0x18,
+	0x04, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x18, 0x50, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x4b, 0x65,
+	0x79, 0x43, 0x69, 0x70, 0x68, 0x65, 0x72, 0x74, 0x65, 0x78, 0x74, 0x42, 0x6c, 0x6f, 0x62, 0x12,
+	0x1c, 0x0a, 0x09, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x4b, 0x65, 0x79, 0x18, 0x05, 0x20, 0x01,
+	0x28, 0x0c, 0x52, 0x09, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x4b, 0x65, 0x79, 0x12, 0x1c, 0x0a,
+	0x09, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x49, 0x64, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x09, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x49, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x41,
+	0x6c, 0x67, 0x6f, 0x72, 0x69, 0x74, 0x68, 0x6d, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09,
+	0x41, 0x6c, 0x67, 0x6f, 0x72, 0x69, 0x74, 0x68, 0x6d, 0x22, 0x8b, 0x01, 0x0a, 0x21, 0x41, 0x64,
+	0x76, 0x61, 0x6e, 0x63, 0x65, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74,
+	0x61, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x14, 0x0a, 0x05, 0x4b, 0x65, 0x79, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05,
+	0x4b, 0x65, 0x79, 0x49, 0x64, 0x12, 0x20, 0x0a, 0x0b, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72,
+	0x53, 0x70, 0x65, 0x63, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x4b, 0x65, 0x79, 0x50,
+	0x61, 0x69, 0x72, 0x53, 0x70, 0x65, 0x63, 0x12, 0x1c, 0x0a, 0x09, 0x4b, 0x65, 0x79, 0x46, 0x6f,
+	0x72, 0x6d, 0x61, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x4b, 0x65, 0x79, 0x46,
+	0x6f, 0x72, 0x6d, 0x61, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x41, 0x61, 0x64, 0x18, 0x04, 0x20, 0x01,
+	0x28, 0x0c, 0x52, 0x03, 0x41, 0x61, 0x64, 0x22, 0xd8, 0x02, 0x0a, 0x22, 0x41, 0x64, 0x76, 0x61,
+	0x6e, 0x63, 0x65, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x4b,
+	0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14,
+	0x0a, 0x05, 0x4b, 0x65, 0x79, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x4b,
+	0x65, 0x79, 0x49, 0x64, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x76, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0c,
+	0x52, 0x02, 0x49, 0x76, 0x12, 0x20, 0x0a, 0x0b, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x53,
+	0x70, 0x65, 0x63, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x4b, 0x65, 0x79, 0x50, 0x61,
+	0x69, 0x72, 0x53, 0x70, 0x65, 0x63, 0x12, 0x30, 0x0a, 0x13, 0x50, 0x72, 0x69, 0x76, 0x61, 0x74,
+	0x65, 0x4b, 0x65, 0x79, 0x50, 0x6c, 0x61, 0x69, 0x6e, 0x74, 0x65, 0x78, 0x74, 0x18, 0x04, 0x20,
+	0x01, 0x28, 0x0c, 0x52, 0x13, 0x50, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x4b, 0x65, 0x79, 0x50,
+	0x6c, 0x61, 0x69, 0x6e, 0x74, 0x65, 0x78, 0x74, 0x12, 0x3a, 0x0a, 0x18, 0x50, 0x72, 0x69, 0x76,
+	0x61, 0x74, 0x65, 0x4b, 0x65, 0x79, 0x43, 0x69, 0x70, 0x68, 0x65, 0x72, 0x74, 0x65, 0x78, 0x74,
+	0x42, 0x6c, 0x6f, 0x62, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x18, 0x50, 0x72, 0x69, 0x76,
+	0x61, 0x74, 0x65, 0x4b, 0x65, 0x79, 0x43, 0x69, 0x70, 0x68, 0x65, 0x72, 0x74, 0x65, 0x78, 0x74,
+	0x42, 0x6c, 0x6f, 0x62, 0x12, 0x1c, 0x0a, 0x09, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x4b, 0x65,
+	0x79, 0x18, 0x06, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x09, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x4b,
+	0x65, 0x79, 0x12, 0x1c, 0x0a, 0x09, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x49, 0x64, 0x18,
+	0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x49, 0x64,
+	0x12, 0x1c, 0x0a, 0x09, 0x41, 0x6c, 0x67, 0x6f, 0x72, 0x69, 0x74, 0x68, 0x6d, 0x18, 0x08, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x09, 0x41, 0x6c, 0x67, 0x6f, 0x72, 0x69, 0x74, 0x68, 0x6d, 0x12, 0x22,
+	0x0a, 0x0c, 0x4b, 0x65, 0x79, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x18, 0x09,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x4b, 0x65, 0x79, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e,
+	0x49, 0x64, 0x22, 0x9b, 0x01, 0x0a, 0x31, 0x41, 0x64, 0x76, 0x61, 0x6e, 0x63, 0x65, 0x47, 0x65,
+	0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69,
+	0x72, 0x57, 0x69, 0x74, 0x68, 0x6f, 0x75, 0x74, 0x50, 0x6c, 0x61, 0x69, 0x6e, 0x74, 0x65, 0x78,
+	0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x4b, 0x65, 0x79, 0x49,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x4b, 0x65, 0x79, 0x49, 0x64, 0x12, 0x20,
+	0x0a, 0x0b, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x53, 0x70, 0x65, 0x63, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x0b, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x53, 0x70, 0x65, 0x63,
+	0x12, 0x1c, 0x0a, 0x09, 0x4b, 0x65, 0x79, 0x46, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x09, 0x4b, 0x65, 0x79, 0x46, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x12, 0x10,
+	0x0a, 0x03, 0x41, 0x61, 0x64, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x41, 0x61, 0x64,
+	0x22, 0xb6, 0x02, 0x0a, 0x32, 0x41, 0x64, 0x76, 0x61, 0x6e, 0x63, 0x65, 0x47, 0x65, 0x6e, 0x65,
+	0x72, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x57,
+	0x69, 0x74, 0x68, 0x6f, 0x75, 0x74, 0x50, 0x6c, 0x61, 0x69, 0x6e, 0x74, 0x65, 0x78, 0x74, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x4b, 0x65, 0x79, 0x49, 0x64,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x4b, 0x65, 0x79, 0x49, 0x64, 0x12, 0x0e, 0x0a,
+	0x02, 0x49, 0x76, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x02, 0x49, 0x76, 0x12, 0x20, 0x0a,
+	0x0b, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x53, 0x70, 0x65, 0x63, 0x18, 0x03, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x0b, 0x4b, 0x65, 0x79, 0x50, 0x61, 0x69, 0x72, 0x53, 0x70, 0x65, 0x63, 0x12,
+	0x3a, 0x0a, 0x18, 0x50, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x4b, 0x65, 0x79, 0x43, 0x69, 0x70,
+	0x68, 0x65, 0x72, 0x74, 0x65, 0x78, 0x74, 0x42, 0x6c, 0x6f, 0x62, 0x18, 0x04, 0x20, 0x01, 0x28,
+	0x0c, 0x52, 0x18, 0x50, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x4b, 0x65, 0x79, 0x43, 0x69, 0x70,
+	0x68, 0x65, 0x72, 0x74, 0x65, 0x78, 0x74, 0x42, 0x6c, 0x6f, 0x62, 0x12, 0x1c, 0x0a, 0x09, 0x50,
+	0x75, 0x62, 0x6c, 0x69, 0x63, 0x4b, 0x65, 0x79, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x09,
+	0x50, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x4b, 0x65, 0x79, 0x12, 0x1c, 0x0a, 0x09, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x49, 0x64, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x49, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x41, 0x6c, 0x67, 0x6f, 0x72,
+	0x69, 0x74, 0x68, 0x6d, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x41, 0x6c, 0x67, 0x6f,
+	0x72, 0x69, 0x74, 0x68, 0x6d, 0x12, 0x22, 0x0a, 0x0c, 0x4b, 0x65, 0x79, 0x56, 0x65, 0x72, 0x73,
+	0x69, 0x6f, 0x6e, 0x49, 0x64, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x4b, 0x65, 0x79,
+	0x56, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x42, 0x46, 0x0a, 0x29, 0x63, 0x6f, 0x6d,
+	0x2e, 0x61, 0x6c, 0x69, 0x79, 0x75, 0x6e, 0x2e, 0x64, 0x6b, 0x6d, 0x73, 0x2e, 0x67, 0x63, 0x73,
+	0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x61, 0x70, 0x69, 0x2e, 0x75, 0x74, 0x69, 0x6c, 0x2e, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x42, 0x09, 0x41, 0x70, 0x69, 0x4d, 0x6f, 0x64, 0x65, 0x6c,
+	0x73, 0x5a, 0x0e, 0x2e, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2f, 0x61, 0x70,
+	0x69, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -2254,33 +3083,41 @@ func file_api_proto_rawDescGZIP() []byte {
 	return file_api_proto_rawDescData
 }
 
-var file_api_proto_msgTypes = make([]protoimpl.MessageInfo, 25)
+var file_api_proto_msgTypes = make([]protoimpl.MessageInfo, 33)
 var file_api_proto_goTypes = []interface{}{
-	(*EncryptRequest)(nil),                 // 0: api.EncryptRequest
-	(*EncryptResponse)(nil),                // 1: api.EncryptResponse
-	(*DecryptRequest)(nil),                 // 2: api.DecryptRequest
-	(*DecryptResponse)(nil),                // 3: api.DecryptResponse
-	(*SignRequest)(nil),                    // 4: api.SignRequest
-	(*SignResponse)(nil),                   // 5: api.SignResponse
-	(*VerifyRequest)(nil),                  // 6: api.VerifyRequest
-	(*VerifyResponse)(nil),                 // 7: api.VerifyResponse
-	(*HmacRequest)(nil),                    // 8: api.HmacRequest
-	(*HmacResponse)(nil),                   // 9: api.HmacResponse
-	(*GenerateRandomRequest)(nil),          // 10: api.GenerateRandomRequest
-	(*GenerateRandomResponse)(nil),         // 11: api.GenerateRandomResponse
-	(*GenerateDataKeyRequest)(nil),         // 12: api.GenerateDataKeyRequest
-	(*GenerateDataKeyResponse)(nil),        // 13: api.GenerateDataKeyResponse
-	(*GetPublicKeyRequest)(nil),            // 14: api.GetPublicKeyRequest
-	(*GetPublicKeyResponse)(nil),           // 15: api.GetPublicKeyResponse
-	(*Error)(nil),                          // 16: api.Error
-	(*GetSecretValueRequest)(nil),          // 17: api.GetSecretValueRequest
-	(*GetSecretValueResponse)(nil),         // 18: api.GetSecretValueResponse
-	(*AdvanceEncryptRequest)(nil),          // 19: api.AdvanceEncryptRequest
-	(*AdvanceEncryptResponse)(nil),         // 20: api.AdvanceEncryptResponse
-	(*AdvanceDecryptRequest)(nil),          // 21: api.AdvanceDecryptRequest
-	(*AdvanceDecryptResponse)(nil),         // 22: api.AdvanceDecryptResponse
-	(*AdvanceGenerateDataKeyRequest)(nil),  // 23: api.AdvanceGenerateDataKeyRequest
-	(*AdvanceGenerateDataKeyResponse)(nil), // 24: api.AdvanceGenerateDataKeyResponse
+	(*EncryptRequest)(nil),                                     // 0: api.EncryptRequest
+	(*EncryptResponse)(nil),                                    // 1: api.EncryptResponse
+	(*DecryptRequest)(nil),                                     // 2: api.DecryptRequest
+	(*DecryptResponse)(nil),                                    // 3: api.DecryptResponse
+	(*SignRequest)(nil),                                        // 4: api.SignRequest
+	(*SignResponse)(nil),                                       // 5: api.SignResponse
+	(*VerifyRequest)(nil),                                      // 6: api.VerifyRequest
+	(*VerifyResponse)(nil),                                     // 7: api.VerifyResponse
+	(*HmacRequest)(nil),                                        // 8: api.HmacRequest
+	(*HmacResponse)(nil),                                       // 9: api.HmacResponse
+	(*GenerateRandomRequest)(nil),                              // 10: api.GenerateRandomRequest
+	(*GenerateRandomResponse)(nil),                             // 11: api.GenerateRandomResponse
+	(*GenerateDataKeyRequest)(nil),                             // 12: api.GenerateDataKeyRequest
+	(*GenerateDataKeyResponse)(nil),                            // 13: api.GenerateDataKeyResponse
+	(*GetPublicKeyRequest)(nil),                                // 14: api.GetPublicKeyRequest
+	(*GetPublicKeyResponse)(nil),                               // 15: api.GetPublicKeyResponse
+	(*Error)(nil),                                              // 16: api.Error
+	(*GetSecretValueRequest)(nil),                              // 17: api.GetSecretValueRequest
+	(*GetSecretValueResponse)(nil),                             // 18: api.GetSecretValueResponse
+	(*AdvanceEncryptRequest)(nil),                              // 19: api.AdvanceEncryptRequest
+	(*AdvanceEncryptResponse)(nil),                             // 20: api.AdvanceEncryptResponse
+	(*AdvanceDecryptRequest)(nil),                              // 21: api.AdvanceDecryptRequest
+	(*AdvanceDecryptResponse)(nil),                             // 22: api.AdvanceDecryptResponse
+	(*AdvanceGenerateDataKeyRequest)(nil),                      // 23: api.AdvanceGenerateDataKeyRequest
+	(*AdvanceGenerateDataKeyResponse)(nil),                     // 24: api.AdvanceGenerateDataKeyResponse
+	(*GenerateDataKeyPairRequest)(nil),                         // 25: api.GenerateDataKeyPairRequest
+	(*GenerateDataKeyPairResponse)(nil),                        // 26: api.GenerateDataKeyPairResponse
+	(*GenerateDataKeyPairWithoutPlaintextRequest)(nil),         // 27: api.GenerateDataKeyPairWithoutPlaintextRequest
+	(*GenerateDataKeyPairWithoutPlaintextResponse)(nil),        // 28: api.GenerateDataKeyPairWithoutPlaintextResponse
+	(*AdvanceGenerateDataKeyPairRequest)(nil),                  // 29: api.AdvanceGenerateDataKeyPairRequest
+	(*AdvanceGenerateDataKeyPairResponse)(nil),                 // 30: api.AdvanceGenerateDataKeyPairResponse
+	(*AdvanceGenerateDataKeyPairWithoutPlaintextRequest)(nil),  // 31: api.AdvanceGenerateDataKeyPairWithoutPlaintextRequest
+	(*AdvanceGenerateDataKeyPairWithoutPlaintextResponse)(nil), // 32: api.AdvanceGenerateDataKeyPairWithoutPlaintextResponse
 }
 var file_api_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -2596,6 +3433,102 @@ func file_api_proto_init() {
 				return nil
 			}
 		}
+		file_api_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GenerateDataKeyPairRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GenerateDataKeyPairResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GenerateDataKeyPairWithoutPlaintextRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GenerateDataKeyPairWithoutPlaintextResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AdvanceGenerateDataKeyPairRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AdvanceGenerateDataKeyPairResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AdvanceGenerateDataKeyPairWithoutPlaintextRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AdvanceGenerateDataKeyPairWithoutPlaintextResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -2603,7 +3536,7 @@ func file_api_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_api_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   25,
+			NumMessages:   33,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
