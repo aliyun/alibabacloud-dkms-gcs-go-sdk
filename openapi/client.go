@@ -12,6 +12,8 @@ import (
 	dedicatedkmsopenapiutil "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-util"
 )
 
+const USER_AGENT = "kms-gcs-go-sdk-version/" + "0.5.1"
+
 type Config struct {
 	// 访问凭证ID
 	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
@@ -279,7 +281,11 @@ func (client *Client) Init(config *Config) (_err error) {
 	client.Endpoint = config.Endpoint
 	client.Protocol = config.Protocol
 	client.RegionId = config.RegionId
-	client.UserAgent = config.UserAgent
+	if config.UserAgent == nil {
+		client.UserAgent = tea.String(USER_AGENT)
+	}else{
+		client.UserAgent = config.UserAgent
+	}
 	client.ReadTimeout = config.ReadTimeout
 	client.ConnectTimeout = config.ConnectTimeout
 	client.HttpProxy = config.HttpProxy
