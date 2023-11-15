@@ -22,8 +22,14 @@ import (
 	"io"
 	"os"
 	"reflect"
+	"runtime"
 	"strconv"
 	"strings"
+)
+
+const (
+	SDK_NAME    = "kms-gcs-go-sdk-version"
+	SDK_VERSION = "0.5.1"
 )
 
 type RuntimeOptions struct {
@@ -368,6 +374,14 @@ func IsRetryErr(err *tea.SDKError) (_result *bool) {
 		_result = tea.Bool(false)
 	}
 	return _result
+}
+
+func GetUserAgent(userAgent *string) *string {
+	if userAgent != nil {
+		return tea.String(fmt.Sprintf("AlibabaCloud (%s; %s) Golang/%s %s %s/%s", runtime.GOOS, runtime.GOARCH, strings.Trim(runtime.Version(), "go"), tea.StringValue(userAgent), SDK_NAME, SDK_VERSION))
+	}
+	return tea.String(fmt.Sprintf("AlibabaCloud (%s; %s) Golang/%s %s/%s", runtime.GOOS, runtime.GOARCH, strings.Trim(runtime.Version(), "go"), SDK_NAME, SDK_VERSION))
+
 }
 
 func GetSerializedEncryptRequest(reqBody map[string]interface{}) (_result []byte, _err error) {

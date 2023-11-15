@@ -2,7 +2,6 @@
 package client
 
 import (
-	"fmt"
 	array "github.com/alibabacloud-go/darabonba-array/client"
 	map_ "github.com/alibabacloud-go/darabonba-map/client"
 	string_ "github.com/alibabacloud-go/darabonba-string/client"
@@ -11,11 +10,7 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 	dedicatedkmsopenapicredential "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-credential"
 	dedicatedkmsopenapiutil "github.com/aliyun/alibabacloud-dkms-gcs-go-sdk/openapi-util"
-	"runtime"
-	"strings"
 )
-
-var defaultUserAgent = fmt.Sprintf("AlibabaCloud (%s; %s) Golang/%s %s/%s", runtime.GOOS, runtime.GOARCH, strings.Trim(runtime.Version(), "go"), "kms-gcs-go-sdk-version", "0.5.1")
 
 type Config struct {
 	// 访问凭证ID
@@ -284,11 +279,7 @@ func (client *Client) Init(config *Config) (_err error) {
 	client.Endpoint = config.Endpoint
 	client.Protocol = config.Protocol
 	client.RegionId = config.RegionId
-	if config.UserAgent == nil {
-		client.UserAgent = tea.String(defaultUserAgent)
-	} else {
-		client.UserAgent = config.UserAgent
-	}
+	client.UserAgent = dedicatedkmsopenapiutil.GetUserAgent(config.UserAgent)
 	client.ReadTimeout = config.ReadTimeout
 	client.ConnectTimeout = config.ConnectTimeout
 	client.HttpProxy = config.HttpProxy
