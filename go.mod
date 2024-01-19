@@ -11,6 +11,6 @@ require (
 	github.com/alibabacloud-go/tea v1.2.1
 	github.com/alibabacloud-go/tea-utils/v2 v2.0.3
 	github.com/golang/protobuf v1.5.0
-	golang.org/x/crypto v0.10.0
+	golang.org/x/crypto v0.17.0
 	google.golang.org/protobuf v1.31.0
 )
