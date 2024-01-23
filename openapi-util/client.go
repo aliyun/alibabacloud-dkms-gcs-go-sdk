@@ -29,7 +29,7 @@ import (
 
 const (
 	SDK_NAME    = "kms-gcs-go-sdk-version"
-	SDK_VERSION = "0.5.2"
+	SDK_VERSION = "0.5.1"
 )
 
 type RuntimeOptions struct {
