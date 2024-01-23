@@ -18,7 +18,7 @@
 
 ```
 require (
-	github.com/aliyun/alibabacloud-dkms-gcs-go-sdk v0.5.1
+	github.com/aliyun/alibabacloud-dkms-gcs-go-sdk v0.5.2
 	github.com/alibabacloud-go/tea v1.1.17
 )
 ```
