@@ -56,15 +56,15 @@ func main() {
 	runtimeOptions := &dedicatedkmsopenapiutil.RuntimeOptions{
 		IgnoreSSL: tea.Bool(true),
 	}
-	encryptRequest := &dedicatedkmssdk.EncryptRequest{
+	advanceEncryptRequest := &dedicatedkmssdk.AdvanceEncryptRequest{
 		KeyId:     tea.String("<your key id>"),
 		Plaintext: []byte("plaintext"),
 	}
-	encryptResponse, err := client.EncryptWithOptions(encryptRequest, runtimeOptions)
+	advanceEncryptResponse, err := client.AdvanceEncryptWithOptions(advanceEncryptRequest, runtimeOptions)
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(encryptResponse)
+	fmt.Println(advanceEncryptResponse)
 }
 ```
 
